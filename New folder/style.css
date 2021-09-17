@@ -16,4 +16,8 @@
   color: green;
 }
 
-.assessBox { color: white;}
+.assessBox {color: white;}
+
+body{
+font-family: 'Open Sans Condensed', sans-serif;
+}
