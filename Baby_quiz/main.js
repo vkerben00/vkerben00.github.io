@@ -55,7 +55,7 @@ function check(){
 		score = 1;
 	}
 
-	if (correct > 10) {
+	if (correct == 10) {
 		score = 0;
 	}
 	document.getElementById("after_submit").style.visibility = "visible";
