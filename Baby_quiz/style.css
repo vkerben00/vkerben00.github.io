@@ -7,10 +7,9 @@ body {
 }
 
 h1 {
-  background: -webkit-linear-gradient(#1b198c, #6a5b8f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 22px;
 }
+
 
 .intro {
   display: flex;
@@ -27,7 +26,8 @@ h1 {
 
 #quiz {
 	margin-left: 10px;
-	background: #d2def2;
+	background-color: #d2def2; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #ff79d0, #79ffd7);
 	padding: 15px 25px 15px 25px;
 	width: 400px;
 	border-radius: 20px;
@@ -47,7 +47,7 @@ h1 {
 
 
 #button {
-	background: #943a8b;
+	background: #74ff3d;
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
@@ -69,7 +69,7 @@ h1 {
 
 #after_submit {
 	visibility: hidden;
-	background: #ffc34c;
+	background: #ff9279;
 	padding: 10px 10px 30px 10px;
 	width: 400px;
 	border-radius: 20px;
