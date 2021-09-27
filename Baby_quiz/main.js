@@ -44,7 +44,7 @@ function check(){
 		correct++;
 	}
 	var pictures = ["otter.gif", "corgy.gif", "penguin.gif"];
-	var messages = ["You know your Baby Names!", "Pretty good!", "Maybe better next time!"];
+	var messages = ["You know your Baby Names!", "Pretty good!", "Ouch! not so good!"];
 	var score;
 
 	if (correct == 0) {
