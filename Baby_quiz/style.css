@@ -7,7 +7,8 @@ body {
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 25px;
+ color:white;
 }
 
 
@@ -29,7 +30,7 @@ h1 {
 	background-color: #d2def2; /* For browsers that do not support gradients */
     background-image: linear-gradient(to right, #ff5983,#7ee3d7);
 	padding: 15px 25px 15px 25px;
-	width: 400px;
+	width: 450px;
 	border-radius: 20px;
 	float: left;
 
