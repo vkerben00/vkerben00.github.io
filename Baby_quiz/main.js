@@ -31,16 +31,19 @@ function check(){
 	if (question6 == "Calf") {
 		correct++;
 	}
+	if (question7 == "Joey") {
+		correct++;
+	}
 	if (question8 == "Owlet") {
 		correct++;
 	}
 	if (question9 == "Kid") {
 		correct++;
 	}
-	if (question10 == "Foal") {
+	if (question9 == "Foal") {
 		correct++;
 	}
-	var pictures = ["win.gif", "meh.jpeg", "lose.gif"];
+	var pictures = ["otter.gif", "corgy.gif", "penguin.gif"];
 	var messages = ["You know your Baby Names!", "Pretty good!", "Maybe better next time!"];
 	var score;
 
