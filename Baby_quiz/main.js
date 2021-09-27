@@ -31,9 +31,6 @@ function check(){
 	if (question6 == "Calf") {
 		correct++;
 	}
-	if (question7 == "Joey") {
-		correct++;
-	}
 	if (question8 == "Owlet") {
 		correct++;
 	}
@@ -43,16 +40,15 @@ function check(){
 	if (question10 == "Foal") {
 		correct++;
 	}
-	
-	var pictures = ["penguin.gif", "husky.gif", "corgy.gif","otter.gif" ];
+	var pictures = ["win.gif", "meh.jpeg", "lose.gif"];
 	var messages = ["You know your Baby Names!", "Pretty good!", "Maybe better next time!"];
 	var score;
 
-	if (correct == 0 && correct <5) {
+	if (correct == 0) {
 		score = 2;
 	}
 
-	if (correct > 5 && correct < 9) {
+	if (correct > 0 && correct <= 9) {
 		score = 1;
 	}
 
@@ -65,3 +61,4 @@ function check(){
 	document.getElementById("message").innerHTML = messages[score];
 	document.getElementById("number_correct").innerHTML = "You got " + correct + " correct.";
 	document.getElementById("picture").src = pictures[score];
+	}
