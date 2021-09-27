@@ -39,8 +39,8 @@ function check(){
 	}
 	if (question9 == "Kid") {
 		correct++;
-	}
-	if (question9 == "Foal") {
+	 }
+	 if (question10 == "Foal") {
 		correct++;
 	}
 	var pictures = ["otter.gif", "corgy.gif", "penguin.gif"];
@@ -51,14 +51,13 @@ function check(){
 		score = 2;
 	}
 
-	if (correct > 0 && correct <= 9) {
+	if (correct > 0 && correct < 10) {
 		score = 1;
 	}
 
-	if (correct == 10) {
+	if (correct > 10) {
 		score = 0;
 	}
-
 	document.getElementById("after_submit").style.visibility = "visible";
 
 	document.getElementById("message").innerHTML = messages[score];
