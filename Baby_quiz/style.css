@@ -27,7 +27,7 @@ h1 {
 #quiz {
 	margin-left: 10px;
 	background-color: #d2def2; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, #ff79d0, #79ffd7);
+    background-image: linear-gradient(to right, #ff79d0,#7ee3d7);
 	padding: 15px 25px 15px 25px;
 	width: 400px;
 	border-radius: 20px;
@@ -70,11 +70,10 @@ h1 {
 #after_submit {
 	visibility: hidden;
 	background: #ff9279;
-	padding: 10px 10px 30px 10px;
+	padding: 10px 10px 10px 10px;
 	width: 400px;
 	border-radius: 20px;
 	float: left;
-	//margin-left: 200px;
 	font-size: 30px;
 
 
