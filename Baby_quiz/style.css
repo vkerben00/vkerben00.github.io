@@ -27,7 +27,7 @@ h1 {
 #quiz {
 	margin-left: 10px;
 	background-color: #d2def2; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, #ff79d0,#7ee3d7);
+    background-image: linear-gradient(to right, #ff5983,#7ee3d7);
 	padding: 15px 25px 15px 25px;
 	width: 400px;
 	border-radius: 20px;
@@ -47,7 +47,7 @@ h1 {
 
 
 #button {
-	background: #6cc944;
+	background: #57cc3a;
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
