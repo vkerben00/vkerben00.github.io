@@ -51,7 +51,11 @@ function check(){
 		score = 2;
 	}
 
-	if (correct > 0 && correct < 10) {
+	if (correct > 0 && correct < 5) {
+		score = 2;
+	}
+
+	if (correct > 5 && correct < 10) {
 		score = 1;
 	}
 
