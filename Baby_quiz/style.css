@@ -1,9 +1,15 @@
 body {
 	font-family: 'Lato', sans-serif;
-	background-image: url('linewall.jpg');
+	background-image: url('linewall2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
+}
+
+h1 {
+  background: -webkit-linear-gradient(#1b198c, #6a5b8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .intro {
@@ -22,17 +28,14 @@ body {
 #quiz {
 	margin-left: 10px;
 	background: #d2def2;
-	padding: 10px 20px 10px 20px;
+	padding: 15px 25px 15px 25px;
 	width: 400px;
 	border-radius: 20px;
 	float: left;
 
 }
 
-input {
-	margin-bottom: 20px;
-	display: block;
-}
+
 
 #textbox {
 	height: 25px;
@@ -44,7 +47,7 @@ input {
 
 
 #button {
-	background: green;
+	background: #943a8b;
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
@@ -66,12 +69,12 @@ input {
 
 #after_submit {
 	visibility: hidden;
-	background: #ff5459;
-	padding: 10px 20px 10px 20px;
+	background: #ffc34c;
+	padding: 10px 10px 30px 10px;
 	width: 400px;
 	border-radius: 20px;
 	float: left;
-	margin-left: 20px;
+	//margin-left: 200px;
 	font-size: 30px;
 
 
