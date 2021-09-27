@@ -43,6 +43,7 @@ function check(){
 	if (question10 == "Foal") {
 		correct++;
 	}
+	
 	var pictures = ["penguin.gif", "husky.gif", "corgy.gif","otter.gif" ];
 	var messages = ["You know your Baby Names!", "Pretty good!", "Maybe better next time!"];
 	var score;
@@ -51,7 +52,7 @@ function check(){
 		score = 2;
 	}
 
-	if (correct > 0 && correct < 9) {
+	if (correct > 5 && correct < 9) {
 		score = 1;
 	}
 
