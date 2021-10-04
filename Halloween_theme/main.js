@@ -23,4 +23,4 @@ for (let x in person) {
   txt += person[x] + " ";
 };
 
-document.getElementById("demo").innerHTML = txt;
+document.getElementById("ghost1").innerHTML = txt;

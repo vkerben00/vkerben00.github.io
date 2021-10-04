@@ -47,21 +47,49 @@
 <p id="ghost3"> </p>
 
 <script>
-function ghostType(name, age, area, death) {
-        this.name = name;
-        this.age = age;
-        this.area = area;
-        this.death = death;
-      }
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
 
-       ghost1 = new ghostType('Dan', 5, 'red', 'short', 'wavy');
-       ghost2 = new ghostType('Sam', 8, 'black', 'long', 'straight');
-       ghost3 = new ghostType('Sam', 8, 'black', 'long', 'straight');
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+};
+
+document.getElementById("ghost1").innerHTML = txt;
+
+const person2 = {
+  name: "lilly",
+  age: 30,
+  city: "New York"
+};
+
+let txt2 = "";
+for (let x in person2) {
+  txt2 += person2[x] + " ";
+};
+
+document.getElementById("ghost2").innerHTML = txt2;
+
+const person3 = {
+  name: "Stanley",
+  age: 30,
+  city: "New York"
+};
+
+let txt3 = "";
+for (let x in person3) {
+  txt3 += person3[x] + " ";
+};
+
+document.getElementById("ghost3").innerHTML = txt3;
 
 
-document.getElementById("ghost1").innerHTML = ghostType;
-document.getElementById("ghost2").innerHTML = ghostType;
-document.getElementById("ghost3").innerHTML = ghostType;
+
+
+
 </script>
 
 
