@@ -78,12 +78,10 @@ object3.onclick=function(){
 };
 
 
-
-
 const person = {
   name: "Travis, ",
-  age: 30,
-  city: ", haunts the library"
+  death: "died by heart attack",
+  hobby: ", haunts the library"
 };
 
 let txt = "";
@@ -95,8 +93,8 @@ document.getElementById("ghost1").innerHTML = txt;
 
 const person2 = {
   name: "lilly, ",
-  age: 85,
-  city: ", haunts the school"
+  death: "died of bacterial infection",
+  hobby: ", haunts the hospital, you can hear her wails "
 };
 
 let txt2 = "";
@@ -108,14 +106,17 @@ document.getElementById("ghost2").innerHTML = txt2;
 
 const person3 = {
   name: "Stanley, ",
-  age: 38,
-  city: ", causes people to trip for laughs"
+  death: " died by drowning,",
+  hobby: ", causes people to trip for laughs"
 };
 
 let txt3 = "";
 for (let x in person3) {
   txt3 += person3[x] + " ";
 };
+
+document.getElementById("ghost3").innerHTML = txt3;
+
 
 document.getElementById("ghost3").innerHTML = txt3;
 
