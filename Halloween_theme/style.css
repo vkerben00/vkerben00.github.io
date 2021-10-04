@@ -10,6 +10,11 @@ body {
   font-weight: bold;
 }
 
+p {
+  font-size: 20px;
+}
+
+
 .words {
   color: #403936;
   font-size: 0;
