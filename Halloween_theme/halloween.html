@@ -40,11 +40,11 @@
 <p id="ghost1"> </p>
 
 
-<img src="redEyesb.png" alt="red eyes" style="width:150px;height:150px;">
+<img id="redEyesb" src="redEyesb.png" alt="red eyes" style="width:150px;height:150px;">
 
 <p id="ghost2"> </p>
 
-<img src="greenEyesb.png" alt="teal eyes" style="width:150px;height:150px;">
+<img id="greenEyesb" src="greenEyesb.png" alt="teal eyes" style="width:150px;height:150px;">
 
 <p id="ghost3"> </p>
 
@@ -57,6 +57,24 @@ object.onclick=function(){
   var y = Math.floor(Math.random()*500);
   object.style.top = x + 'px';
   object.style.left = y + 'px';
+};
+
+var object2 = document.getElementById('redEyesb');
+
+object2.onclick=function(){
+  var x = Math.floor(Math.random()*300);
+  var y = Math.floor(Math.random()*300);
+  object2.style.top = x + 'px';
+  object2.style.left = y + 'px';
+};
+
+var object3 = document.getElementById('greenEyesb');
+
+object3.onclick=function(){
+  var x = Math.floor(Math.random()*400);
+  var y = Math.floor(Math.random()*400);
+  object3.style.top = x + 'px';
+  object3.style.left = y + 'px';
 };
 
 

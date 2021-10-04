@@ -62,3 +62,15 @@ body {
   position: relative;  
   transition: all 1s;
 }
+
+#redEyesb { 
+  cursor: pointer;
+  position: relative;  
+  transition: all 1s;
+}
+
+#greenEyesb { 
+  cursor: pointer;
+  position: relative;  
+  transition: all 1s;
+}
