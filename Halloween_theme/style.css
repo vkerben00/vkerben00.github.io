@@ -3,7 +3,7 @@ body {
   background: #51586e;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 105vh;
   justify-content: center;
   align-items: center;
   color: #403936;
@@ -84,7 +84,7 @@ body {
   position: relative;
   -webkit-animation: linear infinite;
   -webkit-animation-name: run;
-  -webkit-animation-duration: 9s;
+  -webkit-animation-duration: 15s;
 }
 @-webkit-keyframes run {
   0% {
@@ -100,10 +100,9 @@ body {
 
 #redEyesb  {
   position: relative;
-  animation-direction: reverse;
   -webkit-animation: linear infinite;
   -webkit-animation-name: run;
-  -webkit-animation-duration: 5s;
+  -webkit-animation-duration: 10s;
 }
 @-webkit-keyframes run {
   0% {
@@ -119,7 +118,6 @@ body {
 
 #greenEyesb {
   position: relative;
-  animation-direction: reverse;
   -webkit-animation: linear infinite;
   -webkit-animation-name: run;
   -webkit-animation-duration: 25s;
