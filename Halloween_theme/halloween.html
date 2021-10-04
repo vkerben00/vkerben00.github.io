@@ -6,6 +6,8 @@
 <title>Ghosts Past</title>
 <link href ="style.css" rel ="stylesheet">
 
+
+
 </head>
 
 <body>
@@ -47,6 +49,19 @@
 <p id="ghost3"> </p>
 
 <script>
+
+var object = document.getElementById('blueEyesb');
+
+object.onclick=function(){
+  var x = Math.floor(Math.random()*500);
+  var y = Math.floor(Math.random()*500);
+  object.style.top = x + 'px';
+  object.style.left = y + 'px';
+};
+
+
+
+
 const person = {
   name: "Travis, ",
   age: 30,

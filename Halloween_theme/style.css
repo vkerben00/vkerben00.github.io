@@ -56,7 +56,9 @@ body {
   animation-delay: 3s;
 }
 
-#ghost1 {
-      position: relative;
-      cursor: pointer;
-    }
+
+#blueEyesb { 
+  cursor: pointer;
+  position: relative;  
+  transition: all 1s;
+}

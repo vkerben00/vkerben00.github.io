@@ -11,16 +11,11 @@
       }, 20);
     } */
 
+var object = document.getElementById('blueEyesb');
 
-const person = {
-  name: "John",
-  age: 30,
-  city: "New York"
+object.onclick=function(){
+  var x = Math.floor(Math.random()*300);
+  var y = Math.floor(Math.random()*300);
+  object.style.top = x + 'px';
+  object.style.left = y + 'px';
 };
-
-let txt = "";
-for (let x in person) {
-  txt += person[x] + " ";
-};
-
-document.getElementById("ghost1").innerHTML = txt;
