@@ -76,3 +76,63 @@ body {
   position: relative;  
   transition: all 1s;
 }
+
+
+
+
+#blueEyesb {
+  position: relative;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 9s;
+}
+@-webkit-keyframes run {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 40%;
+  }
+  100% {
+    left: 0%;    
+  }
+}
+
+#redEyesb  {
+  position: relative;
+  animation-direction: reverse;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 5s;
+}
+@-webkit-keyframes run {
+  0% {
+    left: 20;
+  }
+  50% {
+    left: 40%;
+  }
+  100% {
+    left: 20%;    
+  }
+}
+
+#greenEyesb {
+  position: relative;
+  animation-direction: reverse;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 25s;
+}
+@-webkit-keyframes run {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: 20%;
+  }
+  100% {
+    left: 0%;    
+  }
+}
+
