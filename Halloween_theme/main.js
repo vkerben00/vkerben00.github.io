@@ -1,4 +1,4 @@
-blueEyesb.onclick = function() {
+/* blueEyesb.onclick = function() {
       let start = Date.now();
 
       let timer = setInterval(function() {
@@ -9,4 +9,18 @@ blueEyesb.onclick = function() {
         if (timePassed > 2000) clearInterval(timer);
 
       }, 20);
-    }
+    } */
+
+
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+};
+
+document.getElementById("demo").innerHTML = txt;

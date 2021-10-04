@@ -5,20 +5,16 @@
 <meta charset="utf-8">
 <title>Ghosts Past</title>
 <link href ="style.css" rel ="stylesheet">
-<script src = "main.js"></script>
- 
 
 </head>
 
 <body>
-
 
 <div class="words word1">
   <span>M</span>
   <span>E</span>
   <span>E</span>
   <span>T</span>
-  
 </div>
 
 <div class="words word2">
@@ -37,23 +33,36 @@
 </div><br>
 
 
-
 <img id="blueEyesb" src="blueEyesb.png" alt="blue eyes" style="width:150px;height:150px;">
 
-<p> testing testing </p>
+<p id="ghost1"> </p>
 
 
 <img src="redEyesb.png" alt="red eyes" style="width:150px;height:150px;">
 
-<p> testing testing </p>
+<p id="ghost2"> </p>
 
 <img src="greenEyesb.png" alt="teal eyes" style="width:150px;height:150px;">
 
-<p> testing testing </p>
+<p id="ghost3"> </p>
+
+<script>
+function ghostType(name, age, area, death) {
+        this.name = name;
+        this.age = age;
+        this.area = area;
+        this.death = death;
+      }
+
+       ghost1 = new ghostType('Dan', 5, 'red', 'short', 'wavy');
+       ghost2 = new ghostType('Sam', 8, 'black', 'long', 'straight');
+       ghost3 = new ghostType('Sam', 8, 'black', 'long', 'straight');
 
 
-
-
+document.getElementById("ghost1").innerHTML = ghostType;
+document.getElementById("ghost2").innerHTML = ghostType;
+document.getElementById("ghost3").innerHTML = ghostType;
+</script>
 
 
 </body>
