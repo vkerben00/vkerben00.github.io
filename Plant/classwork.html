@@ -6,23 +6,8 @@
 
     <title>ifelse</title>
 
- <script>
-
-var myArray= ["blue", "green","purple", "pink", "red"];
-
-for(i=0; i<4; i++){
-  console.log(myArray[i]);
-}
-
-
-
-  
-     
-  </script>
-
-  
+ 
 <style>
-
 
 </style>
 
@@ -32,9 +17,43 @@ for(i=0; i<4; i++){
 
   <body>
 
-
+<canvas id="painting" width=500 height=500></canvas>
 
 
   </body>
+
+
+<script>
+
+canvas= document.getElementById('painting');
+ctx= canvas.getContext('2d');
+
+x = 200;
+y= 200;
+ctx.fillRect(x,y,100,100); //1
+ctx.fillStyle = "#FF0000"
+ctx.fillRect(x,y, 50, 50); //2
+
+//circle
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+ctx.stroke();
+
+
+//line
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+
+
+//txt
+ctx.font = "30px Arial";
+ctx.strokeText("Hello World", 10, 50);
+
+  
+     
+  </script>
+
+
 
  </html> 
