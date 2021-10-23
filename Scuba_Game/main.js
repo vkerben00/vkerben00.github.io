@@ -4,6 +4,7 @@ canvas.width = 1000;
 canvas.height = 600;
 let score = 0;
 let gameFrame = 0;
+let gameSpeed= 1;
 ctx.font = '50px Georgia';
 
 // Mouse interactivity
@@ -166,6 +167,8 @@ function popAndRemove(i){
 
 }
 
+
+
 /**** BUBBLE TEXT ***/ 
 let bubbleTextArray = [];
 let adjustX = -3;
@@ -264,6 +267,30 @@ init2();
 console.log(bubbleTextArray);
 /** bubble text end **/
 
+
+//Repeating background
+const background = new Image();
+background.src= 'background1.png';
+
+const BG = {
+    x1:0,
+    x2:canvas.width,
+    y:0,
+    width: canvas.width,
+    height: canvas.height
+}
+
+function handleBackground(){
+    BG.x1 -= gameSpeed;
+    if (BG.x1< -BG.width) BG.x1= BG.width;
+    BG.x2--;
+    if (BG.x2< -BG.width) BG.x1= BG.width;
+ctx.drawImage(background, BG.x1, BG.y, BG.width, BG.height);
+ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height);
+
+}
+
+
 // animation loop
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -271,6 +298,7 @@ function animate(){
         bubbleTextArray[i].draw();
         bubbleTextArray[i].update();
     }
+    handleBackground();
     handleBubbles();
     player.update();
     player.draw();
