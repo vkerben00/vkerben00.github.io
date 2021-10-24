@@ -4,7 +4,6 @@ canvas.width = 1000;
 canvas.height = 600;
 let score = 0;
 let gameFrame = 0;
-let gameSpeed= 1;
 ctx.font = '50px Georgia';
 
 // Mouse interactivity
@@ -14,10 +13,10 @@ const mouse = {
     y: canvas.height/2,
     click: false
 }
-canvas.addEventListener('mousemove', function(e){
+canvas.addEventListener('mousemove', function(event){
     mouse.click = true;
-    mouse.x = e.x - canvasPosition.left;
-    mouse.y = e.y - canvasPosition.top;
+    mouse.x = event.x - canvasPosition.left;
+    mouse.y = event.y - canvasPosition.top;
 });
 window.addEventListener('mouseup', function(e){
     mouse.click = false;
@@ -31,7 +30,7 @@ playerRight.src = 'https://i.ibb.co/SQpfB1v/fish-swim-right.png';
 
 class Player {
     constructor(){
-        this.x = 0;
+        this.x = canvas.width;
         this.y = canvas.height/2;
         this.radius = 50;
         //this.height = 20;
@@ -104,14 +103,14 @@ const player = new Player();
 const bubblesArray = [];
 const bubble = new Image();
 bubble.src = 'https://i.ibb.co/ZX3thkw/pop2.png';
+
 class Bubble {
     constructor(){
         this.x = Math.random() * canvas.width;
-        this.y = 0 - 50 - Math.random() * canvas.height/2;
+        this.y = canvas.height +100;
         this.radius = 50;
-        this.speed = Math.random() * -5 + -1;
+        this.speed = Math.random() * 5 + 1;
         this.distance;
-        this.sound = Math.random() <= 0.5 ? 'sound1' : 'sound2';
         this.counted = false;
         this.frameX = 0;
         this.spriteWidth = 91;
@@ -126,13 +125,7 @@ class Bubble {
         this.distance = Math.sqrt(dx * dx + dy * dy);
     }
     draw(){
-      /*
-        ctx.fillStyle = 'blue';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();*/
-        ctx.drawImage(bubble, this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x - 68, this.y - 68, this.spriteWidth*1.5, this.spriteHeight*1.5);
+      ctx.drawImage(bubble, this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x - 68, this.y - 68, this.spriteWidth/6, this.spriteHeight/6);
     }
 }
 function handleBubbles(){
@@ -157,7 +150,7 @@ function handleBubbles(){
 }
 function popAndRemove(i){
     if (bubblesArray[i]) {
-        if (!bubblesArray[i].counted) score++;
+        if (!bubblesArray[i].counted);
         bubblesArray[i].counted = true;
         bubblesArray[i].frameX++;
         if (bubblesArray[i].frameX > 7) bubblesArray[i].pop = true;
@@ -168,125 +161,67 @@ function popAndRemove(i){
 }
 
 
-
-/**** BUBBLE TEXT ***/ 
-let bubbleTextArray = [];
-let adjustX = -3;
-let adjustY = -3;
-ctx.fillStyle = 'white';
-ctx.font = '17px Verdana';
-ctx.fillText('Catch Of The Day', 20, 42);
-//ctx.font = '19px Verdana';
-//ctx.fillText('TEXT', 36, 49);
 const textCoordinates = ctx.getImageData(0, 0, 100, 100);
 
-class Particle2 {
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
-        this.size = 7;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.density = (Math.random() * 15) + 1;
+// worms
+const bugArray = [];
+const bug = new Image();
+bug.src = 'wormy.png';
+
+class Bug {
+    constructor(){
+        this.x = Math.random() * canvas.width;
+        this.y =  0 - 50 - Math.random() * canvas.height/2;
+        this.radius = 50;
+        this.speed = Math.random() * -5 + -1;
         this.distance;
-    }
-    draw() {
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = 'rgba(34,147,214,1)';
-        ctx.fillStyle = 'rgba(255,255,255,1)';
-        ctx.beginPath();
-        if (this.distance < 50){
-            this.size = 14;
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.arc(this.x + 4, this.y -4, this.size/3, 0, Math.PI * 2);
-            ctx.arc(this.x -6, this.y -6, this.size/5, 0, Math.PI * 2);
-        } else if (this.distance <= 80){
-            this.size = 8;
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.arc(this.x + 3, this.y -3, this.size/2.5, 0, Math.PI * 2);
-            ctx.arc(this.x -4, this.y -4, this.size/4.5, 0, Math.PI * 2);
-        }
-        else {
-            this.size = 5;
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.arc(this.x + 1, this.y -1, this.size/3, 0, Math.PI * 2);
-        }
-        ctx.closePath();
-        ctx.fill()
+        this.sound = Math.random() <= 0.5 ? 'sound1' : 'sound2';
+        this.counted = false;
+        this.frameX = 0;
+        this.spriteWidth = 460;
+        this.spriteHeight = 672;
+        this.pop = false;
+        this.counted = false;
     }
     update(){
-        let dx = player.x - this.x;
-        let dy = player.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        this.distance = distance;
-        let forceDirectionX = dx / distance;
-        let forceDirectionY = dy / distance;
-        let maxDistance = 100;
-        let force = (maxDistance - distance) / maxDistance;
-        let directionX = forceDirectionX * force * this.density;
-        let directionY = forceDirectionY * force * this.density;
-
-        if (distance < 100){
-            this.x -= directionX;
-            this.y -= directionY;
-        } else {
-            if (this.x !== this.baseX){
-                let dx = this.x - this.baseX;
-                this.x -= dx/20;
-            }
-            if (this.y !== this.baseY){
-                let dy = this.y - this.baseY;
-                this.y -= dy/20;
-            }
-        }
+        this.y -= this.speed
+        const dx = this.x - player.x;
+        const dy = this.y - player.y;
+        this.distance = Math.sqrt(dx * dx + dy * dy);
+    }
+    draw(){
+        ctx.drawImage(bug, this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x - 68, this.y - 68, this.spriteWidth/7, this.spriteHeight/7);
     }
 }
-
-function init2() {
-    bubbleTextArray = [];
-    for (let y = 0, y2 = textCoordinates.height; y < y2; y++){
-        for (let x = 0, x2 = textCoordinates.width; x < x2; x++){
-            if (textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128){
-                let positionX = x + adjustX;
-                let positionY = y + adjustY;
-                bubbleTextArray.push(new Particle2(positionX * 8, positionY * 8));
-            }
+function handleBug(){
+    for (let i = 0; i < bugArray.length; i++){
+        if (bugArray[i].y > canvas.height * 2){
+            bugArray.splice(i, 1);
         }
     }
+    for (let i = 0; i < bugArray.length; i++){
+        if (bugArray[i].distance < bugArray[i].radius + player.radius){
+            popAndRemove(i);
+        }
+    }
+    for (let i = 0; i < bugArray.length; i++){
+        bugArray[i].update();
+        bugArray[i].draw();
+    }
+    if (gameFrame % 50 == 0) {
+        bugArray.push(new Bug());
+
+    }
 }
-init2();
-console.log(bubbleTextArray);
-/** bubble text end **/
-
-
-//Repeating background
-const background = new Image();
-background.src= 'background1.png';
-
-const BG = {
-    x1:0,
-    x2:canvas.width,
-    y:0,
-    width: canvas.width,
-    height: canvas.height
-}
-
-function handleBackground(){
-    BG.x1 -= gameSpeed;
-    if (BG.x1< -BG.width) BG.x1= BG.width;
-    BG.x2--;
-    if (BG.x2< -BG.width) BG.x1= BG.width;
-ctx.drawImage(background, BG.x1, BG.y, BG.width, BG.height);
-ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height);
+function popAndRemove(i){
+    if (bugArray[i]) {
+        if (!bugArray[i].counted)score++;
+        bugArray[i].counted = true;
+        bugArray[i].frameX++;
+        if (bugArray[i].frameX > 12) bugArray[i].pop = true;
+        if (bugArray[i].pop) bugArray.splice(i, 1);
+        requestAnimationFrame(popAndRemove);
+    }
 
 }
 
@@ -294,12 +229,8 @@ ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height);
 // animation loop
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < bubbleTextArray.length; i++){
-        bubbleTextArray[i].draw();
-        bubbleTextArray[i].update();
-    }
-    handleBackground();
     handleBubbles();
+    handleBug();
     player.update();
     player.draw();
     ctx.fillStyle = 'rgba(34,147,214,1)';
