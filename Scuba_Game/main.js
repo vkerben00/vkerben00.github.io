@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 1000;
 canvas.height = 600;
+
 let score = 0;
 let gameFrame = 0;
 let gameSpeed=1;
@@ -132,7 +133,7 @@ update(){
     const dx = this.x - player.x;
     const dy = this.y - player.y;
     const distance = Math.sqrt(dx *dx +dy *dy);
-    if ( distance <this.radius +player.radius){
+    if ( distance < this.radius +player.radius){
         handleGameOver();
     }
  }
@@ -146,7 +147,7 @@ function handleEnemies(){
 
 function handleGameOver(){
     ctx.fillstyle='white';
-    ctx.fillText('GAME OVER, you scored'+ score+ 110, 250);
+    ctx.fillText('GAME OVER, you scored'+ score + 400, 400);
     gameOver=true;
 }
 
@@ -287,16 +288,16 @@ function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     handleBubbles();
     handleBug();
+    handleEnemies();
     player.update();
     player.draw();
-    handleEnemies()
     ctx.fillStyle = 'rgba(34,147,214,1)';
     ctx.font = '20px Georgia';
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
     ctx.fillText('score: ' + score, 141, 336);
     ctx.fillStyle = 'rgba(34,147,214,1)';
     ctx.fillText('score: ' + score, 140, 335);
-    gameFrame += 1;
+    gameFrame ++;
     if (!gameOver)requestAnimationFrame(animate);
 }
 animate();
