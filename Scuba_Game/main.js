@@ -4,6 +4,8 @@ canvas.width = 1000;
 canvas.height = 600;
 let score = 0;
 let gameFrame = 0;
+let gameSpeed=1;
+let gameOver= false;
 ctx.font = '50px Georgia';
 
 // Mouse interactivity
@@ -98,6 +100,59 @@ class Player {
     }
 }
 const player = new Player();
+
+//Enemies
+const enemyImage= new Image();
+enemyImage.src = 'spiky_ball.png';
+
+class Enemy {
+   constructor(){
+      this.x= canvas.width + 200;
+      this.y= Math.random() * (canvas.height -150) +90;
+      this.radius=60;
+      this.speed= Math.random() * 2 + 2;
+      //this.frame= 0;
+      //this.frameX=0;
+      //this.frameY=0;
+      this.spriteWidth=300;
+      this.spriteHeight=305;
+    }
+
+draw(){
+      ctx.drawImage(enemyImage,this.x,this.y);
+}
+update(){
+    this.x -= this.speed;
+    if(this.x < 0 - this.radius *2){
+        this.x = canvas.width+200;
+        this.y= Math.random()* (canvas.height -150)+ 90;
+        this.speed = Math.random()*2 + 2;
+    }
+      //collision with player
+    const dx = this.x - player.x;
+    const dy = this.y - player.y;
+    const distance = Math.sqrt(dx *dx +dy *dy);
+    if ( distance <this.radius +player.radius){
+        handleGameOver();
+    }
+ }
+}
+
+const enemy1= new Enemy();
+function handleEnemies(){
+    enemy1.draw();
+    enemy1.update();
+}
+
+function handleGameOver(){
+    ctx.fillstyle='white';
+    ctx.fillText('GAME OVER, you scored'+ score+ 110, 250);
+    gameOver=true;
+}
+
+
+
+
 
 // Bubbles
 const bubblesArray = [];
@@ -226,6 +281,7 @@ function popAndRemove(i){
 }
 
 
+
 // animation loop
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -233,6 +289,7 @@ function animate(){
     handleBug();
     player.update();
     player.draw();
+    handleEnemies()
     ctx.fillStyle = 'rgba(34,147,214,1)';
     ctx.font = '20px Georgia';
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
@@ -240,7 +297,7 @@ function animate(){
     ctx.fillStyle = 'rgba(34,147,214,1)';
     ctx.fillText('score: ' + score, 140, 335);
     gameFrame += 1;
-    requestAnimationFrame(animate);
+    if (!gameOver)requestAnimationFrame(animate);
 }
 animate();
 
