@@ -9,6 +9,8 @@ let gameSpeed=1;
 let gameOver= false;
 ctx.font = '50px Georgia';
 
+
+
 // Mouse interactivity
 let canvasPosition = canvas.getBoundingClientRect();
 const mouse = {
@@ -20,6 +22,7 @@ canvas.addEventListener('mousemove', function(event){
     mouse.click = true;
     mouse.x = event.x - canvasPosition.left;
     mouse.y = event.y - canvasPosition.top;
+
 });
 window.addEventListener('mouseup', function(e){
     mouse.click = false;
@@ -152,6 +155,58 @@ function handleGameOver(){
 }
 
 
+//Enemies2
+const enemyImage2= new Image();
+enemyImage2.src = 'broken_bottle.png';
+
+class Enemy2 {
+   constructor(){
+      this.x= canvas.width + 250;
+      this.y= Math.random() * (canvas.height -150) +90;
+      this.radius=60;
+      this.speed= Math.random() * 2 + 2;
+      //this.frame= 0;
+      //this.frameX=0;
+      //this.frameY=0;
+      this.spriteWidth=104;
+      this.spriteHeight=236;
+    }
+
+draw(){
+      ctx.drawImage(enemyImage2,this.x-70,this.y-20,this.spriteWidth/3,this.spriteHeight/3);
+}
+update(){
+    this.x -= this.speed;
+    if(this.x < 0 - this.radius *2){
+        this.x = canvas.width+200;
+        this.y= Math.random()* (canvas.height -150)+ 90;
+        this.speed = Math.random()*2 + 2;
+    }
+      //collision with player
+    const dx = this.x - player.x;
+    const dy = this.y - player.y;
+    const distance = Math.sqrt(dx *dx +dy *dy);
+    if ( distance < this.radius +player.radius){
+        handleGameOver();
+    }
+ }
+}
+
+const enemy2= new Enemy2();
+function handleEnemies2(){
+    enemy2.update();
+    enemy2.draw();
+}
+
+function handleGameOver2(){
+    ctx.fillstyle='white';
+    ctx.fillText('GAME OVER, you scored '+ score, 400, 400);
+    gameOver=true;
+}
+
+
+
+
 
 // Bubbles
 const bubblesArray = [];
@@ -229,14 +284,14 @@ class Bug {
         this.radius = 50;
         this.speed = Math.random() * -5 + -1;
         this.distance;
-        this.sound = Math.random() <= 0.5 ? 'sound1' : 'sound2';
         this.counted = false;
+        this.sound = Math.random() <= 0.5 ? 'sound1' : 'sound2';
         this.frameX = 0;
         this.spriteWidth = 460;
         this.spriteHeight = 672;
         this.pop = false;
         this.counted = false;
-        this.sound = Math.random() <= 0.5? 'sound1' : 'sound2'    }
+            }
     update(){
         this.y -= this.speed
         const dx = this.x - player.x;
@@ -248,6 +303,10 @@ class Bug {
     }
 }
 
+const bugEat1 = document.createElement('audio');
+bugEat1.src= 'splash1.mp3';
+const bugEat2 = document.createElement('audio');
+bugEat2.src= 'splash2.mp3';
 
 
 
@@ -255,25 +314,27 @@ function handleBug(){
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].y > canvas.height * 2){
             bugArray.splice(i, 1);
-
         }
     }
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].distance < bugArray[i].radius + player.radius){
             popAndRemove(i);
 
+             if (bugArray[i].sound =='sound1') {
+                 bugEat1.play();
+               }else {
+                  bugEat2.play();
+               }
         }
     }
     for (let i = 0; i < bugArray.length; i++){
         bugArray[i].update();
         bugArray[i].draw();
-
     }
     if (gameFrame % 50 == 0) {
         bugArray.push(new Bug());
 
     }
-
 }
 
 
@@ -299,6 +360,7 @@ function animate(){
     handleBubbles();
     handleBug();
     handleEnemies();
+    handleEnemies2();
     player.update();
     player.draw();
     ctx.fillStyle = 'rgba(34,147,214,1)';
