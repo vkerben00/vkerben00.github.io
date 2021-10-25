@@ -154,7 +154,7 @@ function handleEnemies(){
 
 function handleGameOver(){
     ctx.fillstyle='white';
-    ctx.fillText('GAME OVER, you scored '+ score +' tasty worms!', 400, 400);
+    ctx.fillText('GAME OVER, you scored '+ score +' tasty catches!', 400, 400);
     gameOver=true;
 }
 
