@@ -117,7 +117,7 @@ class Enemy {
    constructor(){
       this.x= canvas.width + 200;
       this.y= Math.random() * (canvas.height -150) +90;
-      this.radius=60;
+      this.radius=40;
       this.speed= Math.random() * 2 + 2;
       //this.frame= 0;
       //this.frameX=0;
@@ -212,7 +212,7 @@ class Enemy3 {
    constructor(){
       this.x= canvas.width + 350;
       this.y= Math.random() * (canvas.height -150)+50;
-      this.radius=60;
+      this.radius=40;
       this.speed= Math.random() * 2 + 2;
       //this.frame= 0;
       //this.frameX=0;
@@ -222,7 +222,7 @@ class Enemy3 {
     }
 
 draw(){
-      ctx.drawImage(enemyImage3,this.x-50,this.y-75,this.spriteWidth/3,this.spriteHeight/3);
+      ctx.drawImage(enemyImage3,this.x-55,this.y-75,this.spriteWidth/3,this.spriteHeight/3);
 }
 update(){
     this.x -= this.speed;
