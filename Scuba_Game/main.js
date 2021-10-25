@@ -210,8 +210,8 @@ enemyImage3.src = 'shark.png';
 
 class Enemy3 {
    constructor(){
-      this.x= canvas.width + 300;
-      this.y= Math.random() * (canvas.height -250) +90;
+      this.x= canvas.width + 350;
+      this.y= Math.random() * (canvas.height -150)+50;
       this.radius=60;
       this.speed= Math.random() * 2 + 2;
       //this.frame= 0;
@@ -228,7 +228,7 @@ update(){
     this.x -= this.speed;
     if(this.x < 0 - this.radius *2){
         this.x = canvas.width+300;
-        this.y= Math.random()* (canvas.height -150)+ 90;
+        this.y= Math.random()* (canvas.height -150)+ 50;
         this.speed = Math.random()*2 + 2;
     }
       //collision with player
