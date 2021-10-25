@@ -201,13 +201,50 @@ function handleEnemies2(){
     enemy2.draw();
 }
 
-function handleGameOver2(){
-    ctx.fillstyle='white';
-    ctx.fillText('GAME OVER, you scored '+ score, 400, 400);
-    gameOver=true;
+
+
+//Enemies3
+const enemyImage3= new Image();
+enemyImage3.src = 'shark.png';
+
+class Enemy3 {
+   constructor(){
+      this.x= canvas.width + 250;
+      this.y= Math.random() * (canvas.height -150) +90;
+      this.radius=60;
+      this.speed= Math.random() * 2 + 2;
+      //this.frame= 0;
+      //this.frameX=0;
+      //this.frameY=0;
+      this.spriteWidth=1133;
+      this.spriteHeight=629;
+    }
+
+draw(){
+      ctx.drawImage(enemyImage3,this.x-50,this.y-20,this.spriteWidth/3,this.spriteHeight/3);
+}
+update(){
+    this.x -= this.speed;
+    if(this.x < 0 - this.radius *2){
+        this.x = canvas.width+200;
+        this.y= Math.random()* (canvas.height -150)+ 90;
+        this.speed = Math.random()*2 + 2;
+    }
+      //collision with player
+    const dx = this.x - player.x;
+    const dy = this.y - player.y;
+    const distance = Math.sqrt(dx *dx +dy *dy);
+    if ( distance < this.radius +player.radius){
+        handleGameOver();
+    }
+ }
 }
 
-
+const enemy3= new Enemy3();
+function handleEnemies3(){
+    enemy3.update();
+    enemy3.draw();
+}
 
 
 
@@ -378,6 +415,7 @@ if (showMenu) {
     handleBug();
     handleEnemies();
     handleEnemies2();
+    handleEnemies3();
     player.update();
     player.draw();
     ctx.fillStyle = 'rgba(34,147,214,1)';
