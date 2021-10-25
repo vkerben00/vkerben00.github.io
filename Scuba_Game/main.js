@@ -349,7 +349,7 @@ function handleBug(){
     }
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].distance < bugArray[i].radius + player.radius){
-            popAndRemove(i);
+          
             /*console.log("flag1: "+bugArray[i].sound);
             console.log(bugArray.length);*/
              if (bugArray[i].sound =='sound1') {
@@ -357,6 +357,7 @@ function handleBug(){
                }else {
                   bugEat2.play();
                }
+            popAndRemove(i);
         }
     }
     for (let i = 0; i < bugArray.length; i++){
