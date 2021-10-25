@@ -18,6 +18,8 @@ const mouse = {
     y: canvas.height/2,
     click: false
 }
+
+let startGame=false;
 canvas.addEventListener('mousemove', function(event){
     mouse.click = true;
     mouse.x = event.x - canvasPosition.left;
@@ -26,6 +28,7 @@ canvas.addEventListener('mousemove', function(event){
 });
 window.addEventListener('mouseup', function(e){
     mouse.click = false;
+    startGame=true;
 });
 
 // Player
@@ -352,11 +355,27 @@ function popAndRemove(i){
 
 }
 
+//menu image 
+
+const menuImage = new Image();
+menuImage.src = 'gamecover.png';
+let showMenu= true;
 
 
 // animation loop
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+if (showMenu) {
+  ctx.drawImage(menuImage,0, 0);
+   if (startGame== true){
+    showMenu= false;
+    startGame == false;
+   }
+
+}
+  else { 
+
     handleBubbles();
     handleBug();
     handleEnemies();
@@ -370,6 +389,8 @@ function animate(){
     ctx.fillStyle = 'rgba(34,147,214,1)';
     ctx.fillText('score: ' + score, 140, 335);
     gameFrame ++;
+}
+
     if (!gameOver)requestAnimationFrame(animate);
 }
 animate();
