@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
+const menuImage = new Image();
 canvas.width = 1000;
 canvas.height = 600;
 
@@ -393,8 +394,6 @@ function popAndRemove(i){
 }
 
 //menu image 
-
-const menuImage = new Image();
 menuImage.src = 'gamecover.png';
 let showMenu= true;
 
