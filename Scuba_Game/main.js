@@ -265,8 +265,7 @@ class Bubble {
         this.frameX = 0;
         this.spriteWidth = 91;
         this.spriteHeight = 91;
-        this.pop = false;
-        this.counted = false;
+        
     }
     update(){
         this.y -= this.speed
