@@ -176,7 +176,7 @@ class Enemy2 {
     }
 
 draw(){
-      ctx.drawImage(enemyImage2,this.x-70,this.y-20,this.spriteWidth/3,this.spriteHeight/3);
+      ctx.drawImage(enemyImage2,this.x-50,this.y-20,this.spriteWidth/3,this.spriteHeight/3);
 }
 update(){
     this.x -= this.speed;
@@ -372,10 +372,8 @@ if (showMenu) {
     showMenu= false;
     startGame == false;
    }
-
 }
   else { 
-
     handleBubbles();
     handleBug();
     handleEnemies();
