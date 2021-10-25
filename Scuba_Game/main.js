@@ -167,7 +167,7 @@ class Enemy2 {
    constructor(){
       this.x= canvas.width + 250;
       this.y= Math.random() * (canvas.height -150) +90;
-      this.radius=60;
+      this.radius=40;
       this.speed= Math.random() * 2 + 2;
       //this.frame= 0;
       //this.frameX=0;
@@ -177,7 +177,7 @@ class Enemy2 {
     }
 
 draw(){
-      ctx.drawImage(enemyImage2,this.x-50,this.y-20,this.spriteWidth/3,this.spriteHeight/3);
+      ctx.drawImage(enemyImage2,this.x-60,this.y-60,this.spriteWidth/3,this.spriteHeight/3);
 }
 update(){
     this.x -= this.speed;
