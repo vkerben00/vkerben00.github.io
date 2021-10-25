@@ -141,8 +141,8 @@ update(){
 
 const enemy1= new Enemy();
 function handleEnemies(){
-    enemy1.draw();
     enemy1.update();
+    enemy1.draw();
 }
 
 function handleGameOver(){
@@ -150,8 +150,6 @@ function handleGameOver(){
     ctx.fillText('GAME OVER, you scored '+ score, 400, 400);
     gameOver=true;
 }
-
-
 
 
 
@@ -238,7 +236,7 @@ class Bug {
         this.spriteHeight = 672;
         this.pop = false;
         this.counted = false;
-    }
+        this.sound = Math.random() <= 0.5? 'sound1' : 'sound2'    }
     update(){
         this.y -= this.speed
         const dx = this.x - player.x;
@@ -249,26 +247,38 @@ class Bug {
         ctx.drawImage(bug, this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x - 68, this.y - 68, this.spriteWidth/7, this.spriteHeight/7);
     }
 }
+
+
+
+
 function handleBug(){
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].y > canvas.height * 2){
             bugArray.splice(i, 1);
+
         }
     }
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].distance < bugArray[i].radius + player.radius){
             popAndRemove(i);
+
         }
     }
     for (let i = 0; i < bugArray.length; i++){
         bugArray[i].update();
         bugArray[i].draw();
+
     }
     if (gameFrame % 50 == 0) {
         bugArray.push(new Bug());
 
     }
+
 }
+
+
+
+
 function popAndRemove(i){
     if (bugArray[i]) {
         if (!bugArray[i].counted)score++;
