@@ -221,7 +221,7 @@ class Enemy3 {
     }
 
 draw(){
-      ctx.drawImage(enemyImage3,this.x-50,this.y-20,this.spriteWidth/3,this.spriteHeight/3);
+      ctx.drawImage(enemyImage3,this.x-50,this.y-75,this.spriteWidth/3,this.spriteHeight/3);
 }
 update(){
     this.x -= this.speed;
