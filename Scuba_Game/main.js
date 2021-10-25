@@ -27,7 +27,7 @@ canvas.addEventListener('mousemove', function(event){
     mouse.y = event.y - canvasPosition.top;
 
 });
-window.addEventListener('mouseup', function(e){
+window.addEventListener('mouseup', function(event){
     mouse.click = false;
     startGame=true;
 });
@@ -281,11 +281,6 @@ function handleBubbles(){
     for (let i = 0; i < bubblesArray.length; i++){
         if (bubblesArray[i].y > canvas.height * 2){
             bubblesArray.splice(i, 1);
-        }
-    }
-    for (let i = 0; i < bubblesArray.length; i++){
-        if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius){
-            popAndRemove(i);
         }
     }
     for (let i = 0; i < bubblesArray.length; i++){
