@@ -34,9 +34,9 @@ window.addEventListener('mouseup', function(e){
 
 // Player
 const playerLeft = new Image();
-playerLeft.src = 'https://i.ibb.co/TBybGk5/fish-swim-left.png';
+playerLeft.src = 'redfishy3.png';
 const playerRight = new Image();
-playerRight.src = 'https://i.ibb.co/SQpfB1v/fish-swim-right.png';
+playerRight.src = 'redfishy3f.png';
 
 class Player {
     constructor(){
@@ -252,7 +252,7 @@ function handleEnemies3(){
 // Bubbles
 const bubblesArray = [];
 const bubble = new Image();
-bubble.src = 'https://i.ibb.co/ZX3thkw/pop2.png';
+bubble.src = 'pop2.png';
 
 class Bubble {
     constructor(){
@@ -350,7 +350,8 @@ function handleBug(){
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].distance < bugArray[i].radius + player.radius){
             popAndRemove(i);
-
+            /*console.log("flag1: "+bugArray[i].sound);
+            console.log(bugArray.length);*/
              if (bugArray[i].sound =='sound1') {
                  bugEat1.play();
                }else {
