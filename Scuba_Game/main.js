@@ -210,8 +210,8 @@ enemyImage3.src = 'shark.png';
 
 class Enemy3 {
    constructor(){
-      this.x= canvas.width + 250;
-      this.y= Math.random() * (canvas.height -150) +90;
+      this.x= canvas.width + 300;
+      this.y= Math.random() * (canvas.height -250) +90;
       this.radius=60;
       this.speed= Math.random() * 2 + 2;
       //this.frame= 0;
@@ -227,7 +227,7 @@ draw(){
 update(){
     this.x -= this.speed;
     if(this.x < 0 - this.radius *2){
-        this.x = canvas.width+200;
+        this.x = canvas.width+300;
         this.y= Math.random()* (canvas.height -150)+ 90;
         this.speed = Math.random()*2 + 2;
     }
@@ -298,20 +298,11 @@ function handleBubbles(){
 
     }
 }
-function popAndRemove(i){
-    if (bubblesArray[i]) {
-        if (!bubblesArray[i].counted);
-        bubblesArray[i].counted = true;
-        bubblesArray[i].frameX++;
-        if (bubblesArray[i].frameX > 7) bubblesArray[i].pop = true;
-        if (bubblesArray[i].pop) bubblesArray.splice(i, 1);
-        requestAnimationFrame(popAndRemove);
-    }
-
-}
 
 
 const textCoordinates = ctx.getImageData(0, 0, 100, 100);
+
+
 
 // worms
 const bugArray = [];
