@@ -344,9 +344,6 @@ function handleBug(){
     }
     for (let i = 0; i < bugArray.length; i++){
         if (bugArray[i].distance < bugArray[i].radius + player.radius){
-          
-            /*console.log("flag1: "+bugArray[i].sound);
-            console.log(bugArray.length);*/
              if (bugArray[i].sound =='sound1') {
                  bugEat1.play();
                }else {
