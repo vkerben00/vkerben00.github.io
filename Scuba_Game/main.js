@@ -70,13 +70,6 @@ class Player {
         this.angle = theta;
     }
     draw(){
-        if (mouse.click){
-            ctx.lineWidth = 0.2;
-            ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
-        }
         if (gameFrame % 10 == 0) {
             this.frame++;
             if (this.frame >= 12) this.frame = 0;
@@ -107,7 +100,9 @@ class Player {
         ctx.restore();
     }
 }
+
 const player = new Player();
+
 
 //Enemies
 const enemyImage= new Image();
