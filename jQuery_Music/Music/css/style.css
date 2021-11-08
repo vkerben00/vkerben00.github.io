@@ -536,8 +536,7 @@ transition: all 0.3s ease-in;
      vertical-align: middle;
     margin: 6px 0px;
 }
- .main-menu ul>li:nth-child (6) {
-     padding-right: 0px;
+ 
 }
  .nav>li {
      position: inherit;
