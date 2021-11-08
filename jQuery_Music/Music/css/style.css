@@ -538,7 +538,7 @@ transition: all 0.3s ease-in;
 }
  
 }
- .nav>li {
+ .nv>li {
      position: inherit;
      display: inline-block;
      vertical-align: middle;
@@ -588,11 +588,11 @@ transition: all 0.3s ease-in;
   .text-bg span {
      font-size: 80px;
 line-height: 80px;
-color: #0fc9da;
+color:#0630d6
 text-transform: uppercase;
   }
  .text-bg h1 {
-    color: #fff;
+    color:#0630d6
 padding-top: 20px;
 font-size: 100px;
 line-height: 85px;
