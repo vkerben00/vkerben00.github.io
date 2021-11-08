@@ -602,9 +602,9 @@ text-transform: uppercase;
 font-weight: bold;
 }
  .text-bg p {
-    font-size: 17px;
+    font-size: 22px;
 display: block;
-color: #fff;
+color: #1dabf2;
 line-height: 30px;
 padding-bottom: 50px;
 font-weight: 400;
