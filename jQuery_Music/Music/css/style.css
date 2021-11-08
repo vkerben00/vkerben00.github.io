@@ -801,6 +801,61 @@ border-radius: 30px;
 }
 /** end about section **/
 
+/** upcoming section **/
+ .upcoming {
+     padding-top: 90px;
+     background: #fff;
+}
+ 
+ .box_text {
+     max-width: 415px;
+     width: 100%;
+     padding: 25px 2px 2px 2px;
+     float: right;
+}
+
+
+.box_text .titlepage {
+     padding-bottom: 20px; 
+     text-align: left;
+}
+ .box_text p {
+     font-size: 17px;
+     line-height: 35px;
+     font-weight: 400;
+     text-align: left;
+     color: #181716;
+     padding-right: 20px;
+}
+ .box_text a {
+    font-size: 16px;
+border: #000 solid 1px;
+background-color: #000;
+color: #fff;
+padding: 9px 0px;
+max-width: 171px;
+width: 100%;
+display: inline-block;
+text-align: center;
+border-radius: 30px
+float: left;
+margin-top: 53px;
+}
+ .box_text a:hover {
+     background-color: #0ed1f0;
+     border: #0ed1f0 solid 1px;
+     color: #fff;
+}
+.padding_left3 {padding-right: 0px;}
+
+.upcomimg figure {margin: 0;}
+.upcomimg figure img {width: 100%;}
+
+
+
+
+/** end Courses section **/
+
 /** Gallery **/
 .Gallery {
 background: #ececec;
@@ -877,6 +932,14 @@ ul.icon_hu h3 {color: #fff; font-size: 26px; padding: 0; font-weight: 500;}
 ul.icon_hu li {padding: 10px 3px; display: inline-block;}
 
 /** end Gallery **/
+
+
+
+
+
+
+
+
 
 
 
