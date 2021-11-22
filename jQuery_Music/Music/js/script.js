@@ -5,9 +5,11 @@ $(document).ready(function() {
  
   $.getJSON( url, function( json ) {
         console.log(json)
-            $('h2').append("</p><p>Description: " + json.artist.venue)
+            $('h2').append("#bigHall"</p><p> " + json.artist.venue)
       });
     }
 
-    getFruit();
+    getMusic();
 })
+
+
