@@ -46,12 +46,10 @@ map = {
   return svg.node();
 }
 
-import {mutable transform} from "@d3/seamless-zoomable-map-tiles"
+mutable transform = d3.zoomIdentity.translate(width >> 1, height >> 1).scale(1 << 12)
 
 
 url = (x, y, z) => `https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg`
-
-import {height} from "@d3/seamless-zoomable-map-tiles"
 
 height = 600
 
