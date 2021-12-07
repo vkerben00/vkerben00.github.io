@@ -46,8 +46,8 @@ map = {
 
 import {mutable transform} from "@d3/seamless-zoomable-map-tiles"
 
-url = (x, y, z) => `https://tile.opentopomap.org/${z}/${x}/${y}.png`
-//url = (x, y, z) => `https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg`
+
+url = (x, y, z) => `https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg`
 
 import {height} from "@d3/seamless-zoomable-map-tiles"
 
