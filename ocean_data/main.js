@@ -1,5 +1,5 @@
 map = {
-  let svg = d3.create("svg")
+  const svg = d3.create("svg")
       .attr("viewBox", [0, 0, width, height]);
 
   const tile = d3.tile()
@@ -46,7 +46,8 @@ map = {
 
 import {mutable transform} from "@d3/seamless-zoomable-map-tiles"
 
-url = (x, y, z) => `https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg`
+url = (x, y, z) => `https://tile.opentopomap.org/${z}/${x}/${y}.png`
+//url = (x, y, z) => `https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg`
 
 import {height} from "@d3/seamless-zoomable-map-tiles"
 
