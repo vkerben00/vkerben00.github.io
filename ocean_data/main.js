@@ -1,3 +1,5 @@
+deltas = [-100, -4, -1, 0]
+
 map = {
   const svg = d3.create("svg")
       .attr("viewBox", [0, 0, width, height]);
