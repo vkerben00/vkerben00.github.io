@@ -5,7 +5,7 @@ $(document).ready(function() {
  
   $.getJSON( url, function( json ) {
         console.log(json)
-            $('h2').append("#bigHall"</p><p> " + json.artist.venue)
+            $('body').append("#bigHall"</p><p>Description: " + json.artist.venue)
       });
     }
 
