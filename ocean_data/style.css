@@ -1,9 +1,15 @@
-
 body {
   font-family: Arial;
   margin: 0;
 }
 
+#graph1{
+   width:30%;
+ }
+
+#shark{
+   width:50%;
+ }
 
 
 /* Page Content */
@@ -56,11 +62,6 @@ body {
 }
 
 
-
-
-
-
-
  /* map css starts */
 
 @media (min-width: 650px) {
@@ -89,13 +90,13 @@ body {
 
 /* Header/Logo Title */
 .header {
-  padding: 60px;
+  padding: 15px;
   text-align: center;
    background-color: blue; /* For browsers that do not support gradients */
   background-image: linear-gradient(to right,#2292DD, #62D0C9);
   color: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 /* Page Content */
-.content {padding:20px;}
+.content {padding:10px;}

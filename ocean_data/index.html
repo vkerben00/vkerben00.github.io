@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title</title>
+<title>Ocean Data</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
@@ -14,17 +14,42 @@
      crossorigin=""></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.4/leaflet-geocoder-mapzen.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.4/leaflet-geocoder-mapzen.js"></script>
-</head>
+
+  
+  </head>
 <body>
+
 
 <div class="header">
   
-<button class="button button1">Random Ocean Facts</button>
-<button class="button button2">Button 2</button>
-<button class="button button3">Button 3</button>
-</div>
+  <h1>
+    Ocean Data
+  </h1>
+
+  <!--<div class="btn-group">
+  <button>Random Ocean facts</button>
+  <button>Water Compostion</button>
+  <button>Shark Attacks</button>
+</div> -->
+ 
+  
+
+<button ONCLICK="myFunction()" class="button button1">Random</button>
+<DIV ID="joke" ></DIV> 
+
+    
+<div><img ID="graph1" src="water1.png"  STYLE="display:none"> </div>
+<button ONCLICK="ShowAndHide()" class="button button2">Water Compostion</button>
+
+
+  <div><img ID="shark" src="water2.png"  STYLE="display:none"> </div>
+  <button ONCLICK="myFunction2()" class="button button3"> Shark Attacks</button> 
+  <DIV ID="" ></DIV> 
+  
+</div> 
 
     <div id="mapid"></div>
+  
   
   
 </body>
