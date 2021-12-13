@@ -68,4 +68,13 @@ function myFunction2() {
 }
 
 
+const api_whale_url= 'http://hotline.whalemuseum.org/api'
+async function getWhale(){
+  const response = await fetch(api_whale_url);
+  const data = await response.json();
+  console.log(data);
+}
+
+getWhale();
+
 
