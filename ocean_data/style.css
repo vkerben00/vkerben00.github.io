@@ -18,4 +18,46 @@ video {
 .flex-container > div {
   text-align: center;
   width:500px;
+} 
+
+.text
+{
+  position: relative;
+  z-index: 10;
+
+}
+
+.text h2
+{
+  font-size: 4em;
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: #9dffed;
+}
+
+.text p
+{
+  font-size: 1.7em;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+  color: #48e6c9;
+}
+.text a
+{
+  display: inline-block;
+  font-size: 1.3em;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  transition: 0.2s;
+   color: #24d9b8;
+}
+.text a:hover
+{
+  letter-spacing: 6px;
 }
