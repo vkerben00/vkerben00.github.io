@@ -29,52 +29,5 @@ var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/w
     // Replace with your Geocode Earth API key
     L.control.geocoder('ge-fc050a4033212256', geocodingOptions).addTo(map);
 
-function ShowAndHide() {
-    var x = document.getElementById("graph1");
-    if (x.style.display == 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-
-function myFunction() {
-  var x = document.getElementById("joke");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-  const Http = new XMLHttpRequest();
-const url='https://api.chucknorris.io/jokes/random';
-Http.open("GET", url);
-Http.send();
-
-Http.onreadystatechange = (e) => {
-  
-  const txt = Http.responseText;
-const obj = JSON.parse(txt);
-document.getElementById("joke").innerHTML = obj.value;
-}
-}
-
-function myFunction2() {
-  var x = document.getElementById("shark");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-
-const api_whale_url= 'http://hotline.whalemuseum.org/api'
-async function getWhale(){
-  const response = await fetch(api_whale_url);
-  const data = await response.json();
-  console.log(data);
-}
-
-getWhale();
 
 
