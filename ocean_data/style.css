@@ -33,7 +33,7 @@ video {
   font-weight: 700;
   line-height: 1em;
   text-transform: uppercase;
-  color: #9dffed;
+  color: #3de6d8;
 }
 
 .text p
@@ -42,7 +42,7 @@ video {
   margin: 20px 0;
   font-weight: 400;
   max-width: 700px;
-  color: #48e6c9;
+  color: #b0e8de;
 }
 .text a
 {
@@ -55,7 +55,7 @@ video {
   margin-top: 10px;
   letter-spacing: 2px;
   transition: 0.2s;
-   color: #24d9b8;
+   color: #93cf97;
 }
 .text a:hover
 {
