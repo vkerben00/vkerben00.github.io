@@ -3,6 +3,28 @@ body {
   margin: 0;
 }
 
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.flex-container > div {
+  text-align: center;
+  width:500px;
+}
+
 #graph1{
    width:30%;
  }
@@ -105,3 +127,4 @@ body {
 
 /* Page Content */
 .content {padding:10px;}
+
