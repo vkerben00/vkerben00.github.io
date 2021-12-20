@@ -1,6 +1,6 @@
 let map = L.map("mapid", {
   center: [-33.918861,  18.423300], // latitude, longitude in decimal degrees (find it on Google Maps with a right click!)
-  zoom: 7, // can be 0-22, higher is closer
+  zoom: 3, // can be 0-22, higher is closer
   scrollWheelZoom: false // don't zoom the map on scroll
 });
  /* Control panel to display map layers */
@@ -39,8 +39,34 @@ let map = L.map("mapid", {
 
   // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
-  // Read markers data from data.csv
-  $.get('sharksightings.xlsx', function(csvString) {
+
+/*const api_url= 'https://byob-whalewatchers.herokuapp.com/api/v1/beaches/36/whale_sightings';
+async function getAPI(){
+  const response = await fetch(api_url);
+  const data = await response.json();
+  console.log(data);
+}
+getAPI(); */
+
+
+
+
+
+ /*const Http = new XMLHttpRequest();
+const url='https://byob-whalewatchers.herokuapp.com/api/v1/beaches/36/whale_sightings';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  
+  const txt = Http.responseText;
+const obj = JSON.parse(txt);
+
+} */
+
+
+ // Read markers data from data.csv
+  $.get('https://cdn.glitch.me/2342e471-d44d-434d-8d59-40d13197a765/Dec_Whale.csv?v=1639976486464', function(csvString) {
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -54,14 +80,15 @@ let map = L.map("mapid", {
         opacity: 1,
         // Customize your icon
   icon: L.icon({
-    iconUrl: 'shark.svg',
+    iconUrl: 'whale.svg',
     iconSize: [50, 100]
   })
-      }).bindPopup(row.Date);
+      }).bindPopup(row.Title);
        
       
       marker.addTo(map);
     }
 
   });
+
 
