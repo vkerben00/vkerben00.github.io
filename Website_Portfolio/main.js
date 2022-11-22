@@ -1,4 +1,3 @@
-import platform from './images/platform.png'
 
 
 const canvas = document.querySelector('canvas')
@@ -8,7 +7,24 @@ const c = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-const gravity= 0.5
+const gravity= 1
+
+
+class Sprite {
+  constructor({position, imageScr}){
+    this.position = position
+    this.image= new Image()
+    this.image.scr = imageScr
+  }
+draw (){
+    if (!this.image) return
+    c.drawImage(this.image, this.position.x, this.position.y)
+}
+
+update(){
+    this.draw()
+}
+}
 
 class Player {
     constructor() {
@@ -75,10 +91,21 @@ const keys = {
 
 let scrollOffset= 0
 
+const background = new Sprite ({
+    position: {
+        x:0,
+        y:0,
+    },
+    imageSrc: 'Stars Small_2.png'
+})
+
 function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
+    
+    background.update()
     player.update()
+
     platforms.forEach(platform => {
         platform.draw()
     })
