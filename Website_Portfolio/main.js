@@ -5,16 +5,50 @@ const c = canvas.getContext('2d')
 canvas.width = 64 * 16 // 1024
 canvas.height = 64 * 9 //576
 
+class Sprite {
+    constructor({position}){
+        this.position = position
+        this.image = new Image()
+        this.image.src = './images/backgroundLevel1.png'
+    }
+    draw(){
+        c.drawImage(this.image, this.position.x, this.position.y)
+    }
+}
 
+const backgroundLevel1 = new Sprite({
+    position:{
+        x:0,
+        y:0
+    }
+})
 const player = new Player()
 
-//let bottom = y + 100
+const keys = {
+    w: {
+        pressed: false,
+    },
+   a: {
+    pressed: false,
+   },
+   d: {
+    pressed: false,
+   },
+}
 
 function animate(){
     window.requestAnimationFrame(animate)
     c.fillStyle = 'white'
     c.fillRect(0, 0, canvas.width, canvas.height)
 
+    backgroundLevel1.draw()
+
+player.velocity.x = 0
+    if (keys.d.pressed) {
+        player.velocity.x = 5
+    } else if (keys.a.pressed){
+        player.velocity.x = -5
+    }
     player.draw()
     player.update()
 }
@@ -27,10 +61,10 @@ case 'w':
     if (player.velocity.y === 0) player.velocity.y = -20
     break;
 case 'a':
-    player.velocity.x = -4
+    keys.a.pressed = true
     break;
 case 'd':
-    player.velocity.x = 4
+    keys.d.pressed = true
     break;
 }
 })
@@ -38,10 +72,10 @@ case 'd':
 window.addEventListener('keyup', (event) => {
 switch (event.key){
 case 'a':
-    player.velocity.x = 0
+     keys.a.pressed= false
     break;
 case 'd':
-    player.velocity.x = 0
+    keys.d.pressed = false
     break;
 }
 })
