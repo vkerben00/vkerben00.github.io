@@ -28,11 +28,14 @@ const keys = {
 
 function animate(){
     window.requestAnimationFrame(animate)
+    
     backgroundLevel1.draw()
-    collisionBlocks.forEach((collisionBlock) => {
-        collisionBlock.draw()
+    collisionBlocks.forEach((collisionBlock) => {       
+       collisionBlock.draw()
+       //console.log(collisionBlock.position.x +', '+collisionBlock.position.y)
     })
 
+  
 player.velocity.x = 0
     if (keys.d.pressed) {
         player.velocity.x = 5
@@ -41,6 +44,8 @@ player.velocity.x = 0
     }
     player.draw()
     player.update()
+   
+    
 }
 
 animate()
