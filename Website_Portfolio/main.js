@@ -1,92 +1,203 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
-// c for Context
 
 canvas.width = 64 * 16 // 1024
-canvas.height = 64 * 9 //576
+canvas.height = 64 * 9 // 576
 
-
-const parsedCollisions = collisionsLevel1.parse2D()
- const collisionBlocks = parsedCollisions.createObjectsFrom2D()
-
-const backgroundLevel1 = new Sprite({
-    position: {
-        x:0,
-        y:0
-    },
-    imageSrc: './images/backgroundLevel1.png'
-})
+let parsedCollisions
+let collisionBlocks
+let background
+let doors
 const player = new Player({
-    collisionBlocks,
-    imageSrc:'./images/idle.png',
-    frameRate: 11,
+  imageSrc: './images/idle.png',
+  frameRate: 11,
+  animations: {
+    idleRight: {
+      frameRate: 11,
+      frameBuffer: 2,
+      loop: true,
+      imageSrc: './images/idle.png',
+    },
+    idleLeft: {
+      frameRate: 11,
+      frameBuffer: 2,
+      loop: true,
+      imageSrc: './images/idleLeft.png',
+    },
+    runRight: {
+      frameRate: 8,
+      frameBuffer: 4,
+      loop: true,
+      imageSrc: './images/runRight.png',
+    },
+    runLeft: {
+      frameRate: 8,
+      frameBuffer: 4,
+      loop: true,
+      imageSrc: './images/runLeft.png',
+    },
+    enterDoor: {
+      frameRate: 8,
+      frameBuffer: 4,
+      loop: false,
+      imageSrc: './images/enterDoor.png',
+      onComplete: () => {
+        gsap.to(overlay, {
+          opacity: 1,
+          onComplete: () => {
+            level++
+
+            if (level === 4) level = 1
+            levels[level].init()
+            player.switchSprite('idleRight')
+            player.preventInput = false
+            gsap.to(overlay, {
+              opacity: 0,
+            })
+          },
+        })
+      },
+    },
+  },
 })
+
+let level = 3
+let levels = {
+  1: {
+    init: () => {
+      parsedCollisions = collisionsLevel1.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './images/backgroundLevel1.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 767,
+            y: 270,
+          },
+          imageSrc: './images/doorOpen.png',
+          frameRate: 5,
+          frameBuffer: 5,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+    },
+  },
+  2: {
+    init: () => {
+      parsedCollisions = collisionsLevel2.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 96
+      player.position.y = 140
+
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './images/backgroundLevel2.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 772.0,
+            y: 336,
+          },
+          imageSrc: './images/doorOpen.png',
+          frameRate: 5,
+          frameBuffer: 5,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+    },
+  },
+  3: {
+    init: () => {
+      parsedCollisions = collisionsLevel3.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 750
+      player.position.y = 230
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './images/backgroundLevel3.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 176.0,
+            y: 335,
+          },
+          imageSrc: './images/doorOpen.png',
+          frameRate: 5,
+          frameBuffer: 5,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+    },
+  },
+}
 
 const keys = {
-    w: {
-        pressed: false,
-    },
-   a: {
+  w: {
     pressed: false,
-   },
-   d: {
+  },
+  a: {
     pressed: false,
-   },
+  },
+  d: {
+    pressed: false,
+  },
 }
 
-function animate(){
-    window.requestAnimationFrame(animate)
-    
-    backgroundLevel1.draw()
-    collisionBlocks.forEach((collisionBlock) => {       
-       collisionBlock.draw()
-       //console.log(collisionBlock.position.x +', '+collisionBlock.position.y)
-    })
-
-  
-player.velocity.x = 0
-    if (keys.d.pressed) {
-        player.velocity.x = 5
-    } else if (keys.a.pressed){
-        player.velocity.x = -5
-    }
-    player.draw()
-    player.update()
-   
-    
+const overlay = {
+  opacity: 0,
 }
 
+function animate() {
+  window.requestAnimationFrame(animate)
+
+  background.draw()
+  // collisionBlocks.forEach((collisionBlock) => {
+  //   collisionBlock.draw()
+  // })
+
+  doors.forEach((door) => {
+    door.draw()
+  })
+
+  player.handleInput(keys)
+  player.draw()
+  player.update()
+
+  c.save()
+  c.globalAlpha = overlay.opacity
+  c.fillStyle = 'black'
+  c.fillRect(0, 0, canvas.width, canvas.height)
+  c.restore()
+}
+
+levels[level].init()
 animate()
-
-window.addEventListener('keydown', (event) => {
-switch (event.key){
-case 'w':
-    if (player.velocity.y === 0) player.velocity.y = -20
-    break;
-case 'a':
-    keys.a.pressed = true
-    break;
-case 'd':
-    keys.d.pressed = true
-    break;
-}
-})
-
-window.addEventListener('keyup', (event) => {
-switch (event.key){
-case 'a':
-     keys.a.pressed= false
-    break;
-case 'd':
-    keys.d.pressed = false
-    break;
-}
-})
-
-
-
-
-
-
-
-
