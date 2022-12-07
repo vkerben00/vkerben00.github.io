@@ -4,6 +4,9 @@ const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 let gameSpeed = 5;
 
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = 'layer-1.png';
 const backgroundLayer2 = new Image();
