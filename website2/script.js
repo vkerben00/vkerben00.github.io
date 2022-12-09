@@ -87,7 +87,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
     		this.width = 200;
     		this.height = 200;
     		this.x = 0;
-    		this.y = this.gameHeight - this.height;
+            this.y = this.gameHeight - this.height;
     		this.image = document.getElementById('playerImage');
     		this.frameX = 0;
     		this.frameY = 0;
@@ -138,6 +138,18 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
     
 
      class Gem {
+     	constructor(gameWidth, gameHeight){
+     		this.gameWidth = gameWidth;
+     		this.gameHeight = gameHeight;
+     		this.width = 512;
+     		this.height= 512;
+     		this.image = document.getElementById('gem1');
+     		this.x = 0;
+     		this.y = 0;
+     	}
+     	draw(context){
+     		context.drawImage(this.image, this.x, this.y, this.width/4, this.height/4)
+     	}
 
      }
 
@@ -151,6 +163,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
 
      const input = new InputHandler();
      const player = new Player(canvas.width, canvas.height);
+     const gem1 = new Gem(canvas.width, canvas.height);
   
 
      function animate(){
@@ -161,6 +174,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
      });
      	player.draw(ctx);
          player.update(input);
+         gem1.draw(ctx);
      	 requestAnimationFrame(animate);
 
      }
