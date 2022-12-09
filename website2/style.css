@@ -1,4 +1,8 @@
+
 body {
 	background: black;
 }
 
+#playerImage, #gem1 {
+	display:none;
+}
