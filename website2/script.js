@@ -80,15 +80,18 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
     	
      }
 
+
+
        class Player {
     	constructor(gameWidth, gameHeight){
     		this.gameWidth = gameWidth;
     		this.gameHeight = gameHeight;
-    		this.width = 200;
-    		this.height = 200;
+    		this.width = 177;
+    		this.height = 400;
     		this.x = 0;
             this.y = this.gameHeight - this.height;
-    		this.image = document.getElementById('playerImage');
+    		this.playerStanding = document.getElementById('playerStanding');
+    		this.playerRunning = document.getElementById('playerRunning');
     		this.frameX = 0;
     		this.frameY = 0;
     		this.speed = 0;
@@ -99,9 +102,8 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
 
 
       draw(context){
-      	context.fillStyle = 'white';
-      	context.fillRect(this.x, this.y, this.width, this.height);
-      	context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height,
+
+      	context.drawImage(this.playerStanding, this.frameX * this.width, this.frameY * this.height,
       	 this.width, this.height, this.x, this.y, this.width, this.height);
       }
       update(input){
@@ -171,16 +173,17 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
      	gameObjects.forEach(object =>{
      	object.update();
      	object.draw();
-     });
-     	player.draw(ctx);
+         });
+
+     	 player.draw(ctx);
          player.update(input);
          gem1.draw(ctx);
+       
      	 requestAnimationFrame(animate);
 
      }
    animate();
 });
-
 
 
 
