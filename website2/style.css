@@ -3,6 +3,6 @@ body {
 	background: black;
 }
 
-#playerStanding,#playerRunning, #gem1 {
+#playerStanding,#playerRunning, #gem1,#testImage {
 	display:none;
 }
