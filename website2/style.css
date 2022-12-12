@@ -10,3 +10,30 @@ body {
 }
 
 
+nav {
+  z-index: 50;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-190%, -50%);
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #1a162a; 
+}
+
+.container {
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
