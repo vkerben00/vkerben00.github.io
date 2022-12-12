@@ -269,15 +269,15 @@ class PopUpImage{
 
 
      const gemImage1 = new Image();
-     gemImage1.src = 'gems1.png';
+     gemImage1.src = 'Gems1.png';
     const gemImage2 = new Image();
-    gemImage2.src = 'gems2.png';
+    gemImage2.src = 'Gems2.png';
     const gemImage3 = new Image();
-    gemImage3.src = 'gems3.png';
+    gemImage3.src = 'Gems3.png';
      const gemImage4 = new Image();
-   gemImage4.src = 'gems4.png';
+   gemImage4.src = 'Gems4.png';
     const gemImage5 = new Image();
-     gemImage5.src = 'gems5.png';
+     gemImage5.src = 'Gems5.png';
 
 
      const input = new InputHandler();
