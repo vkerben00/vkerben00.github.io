@@ -1,7 +1,7 @@
 window.addEventListener('load', function(){
-	const canvas = document.getElementById('canvas1');
-	const ctx = canvas.getContext('2d');
-	canvas.width = 1920;
+    const canvas = document.getElementById('canvas1');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 1920;
     canvas.height = 1080;
     let gameSpeed = .5;
   
@@ -30,7 +30,7 @@ backgroundLayer5.src = 'layer-5.png';
 //backgroundLayer6.src = 'layer-5.png';
 
 class Layer {
-	constructor(image, speedModifier){
+    constructor(image, speedModifier){
     this.x = 0;
     this.y = 0;
     this.width = 2400;
@@ -48,21 +48,21 @@ class Layer {
     this.speed = gameSpeed * this.speedModifier;
         
    }
-	update(){
+    update(){
 
     if (this.x <= -this.width){
-    	this.x = this.width + this.x2 - this.speed;
+        this.x = this.width + this.x2 - this.speed;
     }
     if (this.x2 <= -this.width){
-    	this.x2 = this.width + this.x - this.speed;
+        this.x2 = this.width + this.x - this.speed;
     }
     this.x = Math.floor(this.x - this.speed);
     this.x2 = Math.floor(this.x2 - this.speed);
-	}
-	draw(){
+    }
+    draw(){
        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
        ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
-	}
+    }
 }
 
 const layer1 = new Layer(backgroundLayer1, 2);
@@ -77,53 +77,53 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
 //end of background above
 
     class InputHandler{
-    	constructor(){
-    		this.keys = [];
-    		window.addEventListener('keydown', e => {
-    			if (( e.key === 'ArrowDown' ||
-    				  e.key === 'ArrowUp' ||
-    				  e.key === 'ArrowLeft'||
-    				  e.key === 'ArrowRight')
-    				&& this.keys.indexOf(e.key) === -1){
+        constructor(){
+            this.keys = [];
+            window.addEventListener('keydown', e => {
+                if (( e.key === 'ArrowDown' ||
+                      e.key === 'ArrowUp' ||
+                      e.key === 'ArrowLeft'||
+                      e.key === 'ArrowRight')
+                    && this.keys.indexOf(e.key) === -1){
                   this.keys.push(e.key);
-    				}
+                    }
                  });
-		     window.addEventListener('keyup', e => {
-    			if (  e.key === 'ArrowDown' ||
-    				  e.key === 'ArrowUp' ||
-    				  e.key === 'ArrowLeft'||
-    				  e.key === 'ArrowRight'){
-    				this.keys.splice(this.keys.indexOf(e.key), 1);
-    				}
+             window.addEventListener('keyup', e => {
+                if (  e.key === 'ArrowDown' ||
+                      e.key === 'ArrowUp' ||
+                      e.key === 'ArrowLeft'||
+                      e.key === 'ArrowRight'){
+                    this.keys.splice(this.keys.indexOf(e.key), 1);
+                    }
                  });
-    		}
-    	
+            }
+        
      }
 
 
 
        class Player {
-    	constructor(gameWidth, gameHeight){
-    		this.gameWidth = gameWidth;
-    		this.gameHeight = gameHeight;
-    		this.width = 177;
-    		this.height = 400;
-    		this.x = canvas.width/2 -200;
+        constructor(gameWidth, gameHeight){
+            this.gameWidth = gameWidth;
+            this.gameHeight = gameHeight;
+            this.width = 177;
+            this.height = 400;
+            this.x = canvas.width/2 -200;
             this.y = 600 - this.height;
-    		this.image = document.getElementById('playerStanding');
-    		this.frameX = 0;
-    		this.frameY = 0;
-    		this.speed = 0;
-    		this.totalFrames=60;
-    		this.vy= 0;
-    		this.weight = 1; 
+            this.image = document.getElementById('playerStanding');
+            this.frameX = 0;
+            this.frameY = 0;
+            this.speed = 0;
+            this.totalFrames=60;
+            this.vy= 0;
+            this.weight = 1; 
             this.isRunning =false;
-    		}
+            }
 
       draw(context){
 
-      	context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height,
-      	 this.width, this.height, this.x, this.y, this.width, this.height);
+        context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height,
+         this.width, this.height, this.x, this.y, this.width, this.height);
 
 
       }
@@ -157,59 +157,59 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
         }
 
 
-      	if (input.keys.indexOf('ArrowRight') > -1){
-      	this.switchToRunning();
+        if (input.keys.indexOf('ArrowRight') > -1){
+        this.switchToRunning();
         music1.play();
-      		//this.speed = 5;
-      	} else if (input.keys.indexOf('ArrowLeft') > -1){
-      	this.switchToRunning();
+            //this.speed = 5;
+        } else if (input.keys.indexOf('ArrowLeft') > -1){
+        this.switchToRunning();
             // this.speed = -5;
-      	} else if (input.keys.indexOf('ArrowUp') > -1 && this.onGround()) {
-      	this.switchToRunning();
-      		this.vy -= 30;
-      	} else {
-      	    this.switchToStanding();
-      		//this.speed = 0;s
-      	}
-      	  
+        } else if (input.keys.indexOf('ArrowUp') > -1 && this.onGround()) {
+        this.switchToRunning();
+            this.vy -= 30;
+        } else {
+            this.switchToStanding();
+            //this.speed = 0;s
+        }
+          
 
       //horizontal
-      	this.x += this.speed;
+        this.x += this.speed;
        if (this.x <0) this.x = 0;
       else if (this.x > this.gameWidth - this.width) this.x = this.gameWidth - this.width
       //vertical movement
-      	this.y += this.vy;
+        this.y += this.vy;
       if (!this.onGround()){
-      	this.vy += this.weight;
+        this.vy += this.weight;
       } else {
-      	this.vy = 0;
+        this.vy = 0;
       }
       if (this.y > this.gameHeight - this.height) this.y = this.gameHeight - this.height
     }
     onGround(){
-    	return this.y >= 600 - this.height;
+        return this.y >= 600 - this.height;
     }
  }
 
     
 
      class Gem {
-     	constructor(spawnX,spawnY,popup){
-     		this.width = 512;
-     		this.height= 512;
-     		this.popupImage = popup;
-     		this.image = document.getElementById('gem1');
-     		this.x = spawnX;
-     		this.y = spawnY;
-     		this.speed = gameSpeed * 8.5;
-     		this.timer =0;
-     	}
-     	draw(context){
-     	 this.timer+=.016;
-     	     this.y += Math.sin(this.timer *5);
+        constructor(spawnX,spawnY,popup){
+            this.width = 512;
+            this.height= 512;
+            this.popupImage = popup;
+            this.image = document.getElementById('gem1');
+            this.x = spawnX;
+            this.y = spawnY;
+            this.speed = gameSpeed * 8.5;
+            this.timer =0;
+        }
+        draw(context){
+         this.timer+=.016;
+             this.y += Math.sin(this.timer *5);
 
-     		context.drawImage(this.image, this.x, this.y, this.width/4, this.height/4)
-     	}
+            context.drawImage(this.image, this.x, this.y, this.width/4, this.height/4)
+        }
 
         hasGemReachedPlayerPosition(playerPosition){
 
@@ -238,16 +238,16 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
      }
 
 class PopUpImage{
-     	constructor(imagePopup){
-     		this.width = 600;
-     		this.height= 500;
-     		this.image = imagePopup;
-     		this.x = 600;
-     		this.y = 200;
-     	}
-     	draw(context){
-     		context.drawImage(this.image, this.x, this.y, this.width, this.height)
-     	}
+        constructor(imagePopup){
+            this.width = 600;
+            this.height= 500;
+            this.image = imagePopup;
+            this.x = 600;
+            this.y = 200;
+        }
+        draw(context){
+            context.drawImage(this.image, this.x, this.y, this.width, this.height)
+        }
 
      }
 
@@ -281,18 +281,18 @@ class PopUpImage{
 
 if(popObjects.length ==0){
 ctx.clearRect(0,0, canvas.width, canvas.height);
-     	gameObjects.forEach(object =>{
-     	if(player.isPlayerRunning()){
-             	    object.startScrolling();
-             	}
-             	else{
-             	    object.stopScrolling();
+        gameObjects.forEach(object =>{
+        if(player.isPlayerRunning()){
+                    object.startScrolling();
+                }
+                else{
+                    object.stopScrolling();
         }
-     	object.update();
-     	object.draw();
+        object.update();
+        object.draw();
          });
 
-     	 player.draw(ctx);
+         player.draw(ctx);
          player.update(input);
 
        for( var i = 0; i < gemObjects.length; i++){
@@ -320,22 +320,9 @@ else{
               }
 }
 console.log(popObjects.length)
-     	 requestAnimationFrame(animate);
+         requestAnimationFrame(animate);
 
      }
   
    animate();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
