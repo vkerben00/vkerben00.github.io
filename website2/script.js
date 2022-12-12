@@ -239,11 +239,11 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
 
 class PopUpImage{
         constructor(imagePopup){
-            this.width = 600;
+            this.width = 500;
             this.height= 500;
             this.image = imagePopup;
-            this.x = 600;
-            this.y = 200;
+            this.x = 850;
+            this.y = 100;
         }
         draw(context){
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
@@ -265,15 +265,15 @@ class PopUpImage{
 
 
      const gemImage1 = new Image();
-     gemImage1.src = 'gems 1.png';
+     gemImage1.src = 'gems1.png';
     const gemImage2 = new Image();
-    gemImage2.src = 'gems 2.png';
+    gemImage2.src = 'gems2.png';
     const gemImage3 = new Image();
-    gemImage3.src = 'gems 3.png';
+    gemImage3.src = 'gems3.png';
      const gemImage4 = new Image();
-   gemImage4.src = 'gems 4.png';
+   gemImage4.src = 'gems4.png';
     const gemImage5 = new Image();
-     gemImage5.src = 'gems 5.png';
+     gemImage5.src = 'gems5.png';
 
 
      const input = new InputHandler();
