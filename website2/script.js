@@ -9,6 +9,9 @@ window.addEventListener('load', function(){
 //audio
     const music1 = document.createElement('audio');
     music1.src = 'music.mp3';
+    const music2 = document.createElement('audio');
+    music2.src = 'ding.mp3';
+
 
 
 
@@ -216,6 +219,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
             if(this.x <=playerPosition +200)
             {
                 this.x= -5000
+                music2.play();
                 return true;
             }
             else{
