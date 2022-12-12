@@ -1,8 +1,35 @@
 
 body {
 	background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #playerStanding,#playerRunning, #gem1,#testImage {
 	display:none;
 }
+
+.container {
+    width: 1920px;
+    height: 1080px;
+}
+
+.button {
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  stroke: 20px;
+  color: #fff;
+  background-color: lightblue;
+  box-shadow: 0 9px #999;
+  font = Georgia;
+}
+
+
+.button:active {
+  background-color: #darkblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+

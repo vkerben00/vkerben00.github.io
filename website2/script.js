@@ -4,10 +4,20 @@ window.addEventListener('load', function(){
 	canvas.width = 1920;
     canvas.height = 1080;
     let gameSpeed = .5;
+  
+
+//audio
+    const music1 = document.createElement('audio');
+    music1.src = 'music.mp3';
+
+
+
+
+  
 
     //Background 
 const backgroundLayer1 = new Image();
-backgroundLayer1.src = 'layer-1.png';
+backgroundLayer1.src = 'colorBG.png';
 const backgroundLayer2 = new Image();
 backgroundLayer2.src = 'layer-2.png';
 const backgroundLayer3 = new Image();
@@ -16,6 +26,8 @@ const backgroundLayer4 = new Image();
 backgroundLayer4.src = 'layer-4.png';
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = 'layer-5.png';
+//const backgroundLayer6 = new Image();
+//backgroundLayer6.src = 'layer-5.png';
 
 class Layer {
 	constructor(image, speedModifier){
@@ -34,6 +46,7 @@ class Layer {
    }
    startScrolling(){
     this.speed = gameSpeed * this.speedModifier;
+        
    }
 	update(){
 
@@ -57,8 +70,9 @@ const layer2 = new Layer(backgroundLayer2, 8);
 const layer3 = new Layer(backgroundLayer3, 6);
 const layer4 = new Layer(backgroundLayer4, 4);
 const layer5 = new Layer(backgroundLayer5, 8.5);
+const layer6 = new Layer(backgroundLayer5, 5.5);
 
-const gameObjects = [layer1,layer2,layer3,layer4,layer5];
+const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
 
 //end of background above
 
@@ -116,6 +130,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
 
        isPlayerRunning(){
         return this.isRunning;
+         
        }
 
       switchToRunning(){
@@ -131,6 +146,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
                 this.height=400;
                 this.totalFrames=60;
                 this.image = document.getElementById('playerStanding');
+
         }
 
       update(input){
@@ -143,6 +159,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5];
 
       	if (input.keys.indexOf('ArrowRight') > -1){
       	this.switchToRunning();
+        music1.play();
       		//this.speed = 5;
       	} else if (input.keys.indexOf('ArrowLeft') > -1){
       	this.switchToRunning();
@@ -284,6 +301,7 @@ ctx.clearRect(0,0, canvas.width, canvas.height);
              }
               gemObjects[i].draw(ctx);
                if( gemObjects[i].hasGemReachedPlayerPosition(player.x)){
+
                             popObjects.push(new PopUpImage(  gemObjects[i].getPopupImage()));
                             gemObjects.splice(i, 1);
               }
@@ -296,7 +314,7 @@ else{
                  object.draw(ctx);
                  });
 
-              if (input.keys.indexOf('ArrowUp') > -1){
+              if (input.keys.indexOf('ArrowLeft') > -1){
                     console.log("werk "+popObjects.length)
                 popObjects.splice(0, 1)
               }
@@ -305,7 +323,7 @@ console.log(popObjects.length)
      	 requestAnimationFrame(animate);
 
      }
-
+  
    animate();
 });
 
