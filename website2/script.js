@@ -279,10 +279,10 @@ class PopUpImage{
      const input = new InputHandler();
      const player = new Player(canvas.width, canvas.height);
      const gem1 = new Gem(2000,400,popupImage1,gemImage1);
-     const gem2 = new Gem(3000,600,popupImage2,gemImage2);
-     const gem3 = new Gem(4000,700,popupImage3,gemImage3);
-     const gem4 = new Gem(5000,200,popupImage4,gemImage4);
-     const gem5 = new Gem(6000,800,popupImage5,gemImage5);
+     const gem2 = new Gem(3000,300,popupImage2,gemImage2);
+     const gem3 = new Gem(4000,450,popupImage3,gemImage3);
+     const gem4 = new Gem(5000,250,popupImage4,gemImage4);
+     const gem5 = new Gem(6000,400,popupImage5,gemImage5);
 
     const gemObjects = [gem1,gem2,gem3,gem4,gem5];
 
