@@ -1,9 +1,4 @@
-body {
-	background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 #playerStanding,#playerRunning,#testImage {
 	display:none;
@@ -29,6 +24,7 @@ canvas {
 
 .container {
   text-align: center;
+  font-family: Helvetica;
   color: white;
 }
 

@@ -19,6 +19,7 @@ nav {
 
 .container {
   text-align: center;
+  font-family: Helvetica;
   color: white;
 }
 
@@ -26,4 +27,4 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-75%, -20%);
+  transform: translate(-55%, -20%);
