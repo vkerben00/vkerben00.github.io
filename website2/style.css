@@ -5,7 +5,8 @@ body {
     align-items: center;
 }
 
-#playerStanding,#playerRunning, #gem1,#testImage {
+#playerStanding,#playerRunning,#testImage {
 	display:none;
 }
+
 

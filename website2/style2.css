@@ -1,0 +1,17 @@
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #1a162a; 
+}
+
+
+nav {
+  z-index: 50;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-75%, 20%);
+}
