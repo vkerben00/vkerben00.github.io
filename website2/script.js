@@ -194,11 +194,11 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
     
 
      class Gem {
-        constructor(spawnX,spawnY,popup){
+        constructor(spawnX,spawnY,popup,gemImage){
             this.width = 512;
             this.height= 512;
             this.popupImage = popup;
-            this.image = document.getElementById('gem1');
+            this.image = gemImage;
             this.x = spawnX;
             this.y = spawnY;
             this.speed = gameSpeed * 8.5;
@@ -264,14 +264,25 @@ class PopUpImage{
      popupImage5.src = 'testimage.png';
 
 
+     const gemImage1 = new Image();
+     gemImage1.src = 'gems 1.png';
+    const gemImage2 = new Image();
+    gemImage2.src = 'gems 2.png';
+    const gemImage3 = new Image();
+    gemImage3.src = 'gems 3.png';
+     const gemImage4 = new Image();
+   gemImage4.src = 'gems 4.png';
+    const gemImage5 = new Image();
+     gemImage5.src = 'gems 5.png';
+
 
      const input = new InputHandler();
      const player = new Player(canvas.width, canvas.height);
-     const gem1 = new Gem(2000,400,popupImage1);
-     const gem2 = new Gem(3000,400,popupImage2);
-     const gem3 = new Gem(4000,400,popupImage3);
-     const gem4 = new Gem(5000,400,popupImage4);
-     const gem5 = new Gem(6000,400,popupImage5);
+     const gem1 = new Gem(2000,400,popupImage1,gemImage1);
+     const gem2 = new Gem(3000,600,popupImage2,gemImage2);
+     const gem3 = new Gem(4000,700,popupImage3,gemImage3);
+     const gem4 = new Gem(5000,200,popupImage4,gemImage4);
+     const gem5 = new Gem(6000,800,popupImage5,gemImage5);
 
     const gemObjects = [gem1,gem2,gem3,gem4,gem5];
 
