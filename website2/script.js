@@ -86,7 +86,8 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
                 if (( e.key === 'ArrowDown' ||
                       e.key === 'ArrowUp' ||
                       e.key === 'ArrowLeft'||
-                      e.key === 'ArrowRight')
+                      e.key === 'ArrowRight' ||
+                      e.key === 'Enter')
                     && this.keys.indexOf(e.key) === -1){
                   this.keys.push(e.key);
                     }
@@ -95,7 +96,8 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
                 if (  e.key === 'ArrowDown' ||
                       e.key === 'ArrowUp' ||
                       e.key === 'ArrowLeft'||
-                      e.key === 'ArrowRight'){
+                      e.key === 'ArrowRight' ||
+                      e.key === 'Enter'){
                     this.keys.splice(this.keys.indexOf(e.key), 1);
                     }
                  });
@@ -288,14 +290,27 @@ class PopUpImage{
      const gem4 = new Gem(5000,250,popupImage4,gemImage4);
      const gem5 = new Gem(6000,400,popupImage5,gemImage5);
 
+
     const gemObjects = [gem1,gem2,gem3,gem4,gem5];
+
+var splashUp = true;
+const splashImage = new Image();
+     splashImage.src = 'titlePageImg.png';
 
  const popObjects =[];
      function animate(){
+ ctx.clearRect(0,0, canvas.width, canvas.height);
+if(splashUp){
+     ctx.drawImage(splashImage,0,0,2400,700);
 
+     if(input.keys.indexOf('Enter') > -1){
+        splashUp = false;
+     }
+}
+else{
 
 if(popObjects.length ==0){
-ctx.clearRect(0,0, canvas.width, canvas.height);
+       
         gameObjects.forEach(object =>{
         if(player.isPlayerRunning()){
                     object.startScrolling();
@@ -320,24 +335,27 @@ ctx.clearRect(0,0, canvas.width, canvas.height);
                             popObjects.push(new PopUpImage(  gemObjects[i].getPopupImage()));
                             gemObjects.splice(i, 1);
               }
-
-
        }
+
+    
 }
 else{
    popObjects.forEach(object =>{
                  object.draw(ctx);
                  });
 
-              if (input.keys.indexOf('ArrowLeft') > -1){
-                    console.log("werk "+popObjects.length)
+              if (input.keys.indexOf('Enter') > -1){
+                  
                 popObjects.splice(0, 1)
               }
 }
-console.log(popObjects.length)
+
+}
+
          requestAnimationFrame(animate);
 
      }
   
+    
    animate();
 });
