@@ -9,6 +9,9 @@ window.addEventListener('load', function(){
 //audio
     const music1 = document.createElement('audio');
     music1.src = 'music.mp3';
+    const music2 = document.createElement('audio');
+    music2.src = 'ding.mp3';
+
 
 
 
@@ -162,7 +165,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
         music1.play();
             //this.speed = 5;
         } else if (input.keys.indexOf('ArrowLeft') > -1){
-        this.switchToRunning();
+        //this.switchToRunning();
             // this.speed = -5;
         } else if (input.keys.indexOf('ArrowUp') > -1 && this.onGround()) {
         this.switchToRunning();
@@ -194,11 +197,11 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
     
 
      class Gem {
-        constructor(spawnX,spawnY,popup){
+        constructor(spawnX,spawnY,popup,gemImage){
             this.width = 512;
             this.height= 512;
             this.popupImage = popup;
-            this.image = document.getElementById('gem1');
+            this.image = gemImage;
             this.x = spawnX;
             this.y = spawnY;
             this.speed = gameSpeed * 8.5;
@@ -216,6 +219,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
             if(this.x <=playerPosition +200)
             {
                 this.x= -5000
+                music2.play();
                 return true;
             }
             else{
@@ -239,11 +243,11 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
 
 class PopUpImage{
         constructor(imagePopup){
-            this.width = 600;
+            this.width = 500;
             this.height= 500;
             this.image = imagePopup;
-            this.x = 600;
-            this.y = 200;
+            this.x = 850;
+            this.y = 100;
         }
         draw(context){
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
@@ -257,21 +261,32 @@ class PopUpImage{
     const popupImage2 = new Image();
     popupImage2.src = 'popImage2.png';
     const popupImage3 = new Image();
-    popupImage3.src = 'testimage.png';
+    popupImage3.src = 'popImage3.png';
      const popupImage4 = new Image();
-   popupImage4.src = 'testimage.png';
+   popupImage4.src = 'popImage4.png';
     const popupImage5 = new Image();
-     popupImage5.src = 'testimage.png';
+     popupImage5.src = 'popImage5.png';
 
+
+     const gemImage1 = new Image();
+     gemImage1.src = 'gems1.png';
+    const gemImage2 = new Image();
+    gemImage2.src = 'gems2.png';
+    const gemImage3 = new Image();
+    gemImage3.src = 'gems3.png';
+     const gemImage4 = new Image();
+   gemImage4.src = 'gems4.png';
+    const gemImage5 = new Image();
+     gemImage5.src = 'gems5.png';
 
 
      const input = new InputHandler();
      const player = new Player(canvas.width, canvas.height);
-     const gem1 = new Gem(2000,400,popupImage1);
-     const gem2 = new Gem(3000,400,popupImage2);
-     const gem3 = new Gem(4000,400,popupImage3);
-     const gem4 = new Gem(5000,400,popupImage4);
-     const gem5 = new Gem(6000,400,popupImage5);
+     const gem1 = new Gem(2000,400,popupImage1,gemImage1);
+     const gem2 = new Gem(3000,300,popupImage2,gemImage2);
+     const gem3 = new Gem(4000,450,popupImage3,gemImage3);
+     const gem4 = new Gem(5000,250,popupImage4,gemImage4);
+     const gem5 = new Gem(6000,400,popupImage5,gemImage5);
 
     const gemObjects = [gem1,gem2,gem3,gem4,gem5];
 
