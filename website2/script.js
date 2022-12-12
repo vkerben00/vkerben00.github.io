@@ -253,9 +253,9 @@ class PopUpImage{
 
 
      const popupImage1 = new Image();
-     popupImage1.src = 'testimage.png';
+     popupImage1.src = 'popImage1.png';
     const popupImage2 = new Image();
-    popupImage2.src = 'testimage.png';
+    popupImage2.src = 'popImage2.png';
     const popupImage3 = new Image();
     popupImage3.src = 'testimage.png';
      const popupImage4 = new Image();
