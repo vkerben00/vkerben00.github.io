@@ -165,7 +165,7 @@ const gameObjects = [layer1,layer2,layer3,layer4,layer5,layer6];
         music1.play();
             //this.speed = 5;
         } else if (input.keys.indexOf('ArrowLeft') > -1){
-        this.switchToRunning();
+        //this.switchToRunning();
             // this.speed = -5;
         } else if (input.keys.indexOf('ArrowUp') > -1 && this.onGround()) {
         this.switchToRunning();
