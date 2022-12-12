@@ -257,11 +257,11 @@ class PopUpImage{
     const popupImage2 = new Image();
     popupImage2.src = 'popImage2.png';
     const popupImage3 = new Image();
-    popupImage3.src = 'testimage.png';
+    popupImage3.src = 'popImage3.png';
      const popupImage4 = new Image();
-   popupImage4.src = 'testimage.png';
+   popupImage4.src = 'popImage4.png';
     const popupImage5 = new Image();
-     popupImage5.src = 'testimage.png';
+     popupImage5.src = 'popImage5.png';
 
 
      const gemImage1 = new Image();
