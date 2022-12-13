@@ -268,6 +268,8 @@ class PopUpImage{
    popupImage4.src = 'popImage4.png';
     const popupImage5 = new Image();
      popupImage5.src = 'popImage5.png';
+     const popupImage6 = new Image();
+     popupImage6.src = 'popImage6.png';
 
 
      const gemImage1 = new Image();
@@ -280,7 +282,8 @@ class PopUpImage{
    gemImage4.src = 'Gems4.png';
     const gemImage5 = new Image();
      gemImage5.src = 'Gems5.png';
-
+     const gemImage6 = new Image();
+     gemImage6.src = 'Gems6.png';
 
      const input = new InputHandler();
      const player = new Player(canvas.width, canvas.height);
@@ -289,9 +292,11 @@ class PopUpImage{
      const gem3 = new Gem(4000,450,popupImage3,gemImage3);
      const gem4 = new Gem(5000,250,popupImage4,gemImage4);
      const gem5 = new Gem(6000,400,popupImage5,gemImage5);
+     const gem6 = new Gem(6500,350,popupImage6,gemImage6);
 
 
-    const gemObjects = [gem1,gem2,gem3,gem4,gem5];
+
+    const gemObjects = [gem1,gem2,gem3,gem4,gem5,gem6];
 
 var splashUp = true;
 const splashImage = new Image();
