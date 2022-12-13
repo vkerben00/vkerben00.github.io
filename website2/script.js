@@ -295,7 +295,7 @@ class PopUpImage{
 
 var splashUp = true;
 const splashImage = new Image();
-     splashImage.src = 'titlePageImg.png';
+     splashImage.src = 'titleCover.png';
 
  const popObjects =[];
      function animate(){
